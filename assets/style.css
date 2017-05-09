@@ -1,0 +1,251 @@
+html, body{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  margin: 0px auto;
+}
+
+/******BANNER******/
+.banner { 
+  background-color: rgb(68,92,96);
+  /*background-image: url("assets/images/banner2.png");*/
+  /*background-repeat: no-repeat;*/
+  width: auto;
+  height: 300px;
+  /*margin-bottom: 10px*/
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url("http://realizedworth.com/wp-content/uploads/2012/06/RESOURCES-WEB-BANNER-1024x237.jpg");
+}
+
+h1 {
+  margin: 0px;
+}
+
+.bannerTitle, h3 { 
+  margin-left: 20px; 
+  color: white;
+}
+
+/*div.transBox {
+  padding: 20px 0px 0px 20px;
+  background-color: #ffffff;
+    opacity: 0.6;
+    filter: alpha(opacity=60);  For IE8 and earlier 
+}*/
+
+/*div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+  margin: 20px;
+  width: 400px;
+  height: 225px;
+}*/
+
+.navLink {
+  float: right;
+  margin: 20px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+}
+
+
+/******MAIN CONTAINER******/
+.contentContainer {
+  background-color: white;
+  width: 80%;
+  margin-top: -60px;
+  margin-left: 120px;
+}
+.contentRow1 { 
+  /*width: auto;*/
+  height: 300px;
+}
+
+.contentRow2 {
+  /*width: auto;*/
+  height: 300px;
+}
+
+/******ROW 1 SCHEDULER AND MAP******/
+
+#scheduler, #findLocal {
+  display: inline-block;
+  margin: 10px;
+  height: 93%;
+  color: white;
+  font-weight: bolder;
+}
+#scheduler { 
+  /*background-color: rgb(167,226,236);*/ 
+  margin-left: 20px;
+  width: 60%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url("http://eastpointfellowship.com/wp-content/uploads/2013/06/calendar-banner-960x250.jpg");
+  /*opacity:0.5;*/
+
+}
+
+#findLocal { 
+  background-color: rgb(77,104,109);  
+  margin-left: 0px;
+  width: 35%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url("https://www.irvinecompanyapartments.com/locations/los-angeles/playa-vista/_jcr_content/par/section_container/width-container/containerwidth/new_mondrian/grid/link_element_4436032701/modalImage/large.transform/mediaGalleryItemLarge/image.jpg");
+}
+
+/******ROW 2 HOUSING, EVENTS AND SOCIAL MEDIA******/
+#housing, #events, #socialBlock {
+  display: inline-block;
+  margin-left: 10px;
+  height: 93%;
+  color: white;
+  font-weight: bolder;
+
+}
+
+#housing { 
+  background-color: rgb(68,92,96);
+  margin-left: 20px;
+  width: 31.25%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url("http://ktgy.com/wp-content/uploads/2015/11/UC-Irvine-Camino-del-Sol_00-5-920x684.jpg");
+}
+
+#events { 
+  background-color: rgb(122,165,172);
+  width: 31.25%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url("https://i.ytimg.com/vi/99syIT0WgXE/maxresdefault.jpg");
+}
+
+#socialBlock {background-color: rgb(50,68,70);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/d4/43/b7/d443b7d942d632efe0351be269f63db7.jpg");
+  width: 31.25%;
+
+}
+
+
+
+/******FOOTER******/
+.footerContainer { 
+  background-color: rgb(68,92,96);
+  width: auto;
+  height: 70px;
+  padding-top: 20px;
+}
+
+.footerText {
+  color: white;
+  margin-left: 20px;
+}
+
+.footerText a {
+  color: white;
+  text-decoration: none;
+}
+
+/******ON HOVER******/
+
+
+/******MEDIA QUERIES******/
+@media screen and (max-width: 1200px) {
+
+    .contentContainer { 
+      width: 90%;
+      margin-left: 50px;
+    }
+    #scheduler {
+      width: 50%;
+    }
+    #findLocal {
+      width: 45%;
+    }
+
+@media screen and (max-width: 1065px) {
+
+    .contentContainer { 
+      width: 92%;
+      margin-left: 40px;
+    }
+    #findLocal {
+      width: 44%;
+    }
+
+    #housing, #events, #socialBlock {
+      width: 30.75%;
+    }
+
+@media screen and (max-width: 875px) {
+
+    .contentContainer { 
+      width: 93%;
+      margin-left: 30px;
+    }
+    #findLocal {
+      width: 43%;
+    }
+
+    #housing, #events, #socialBlock {
+      width: 30.25%;
+    }
+
+@media screen and (max-width: 815px) {
+
+    .contentContainer { 
+      width: 94%;
+      margin-left: 25px;
+    } 
+    #findLocal {
+      width: 43%;
+    }   
+
+@media screen and (max-width: 760px) {
+
+    .contentContainer { 
+      width: 95%;
+      margin-left: 15px;
+    }
+
+@media screen and (max-width: 740px) {
+
+    .banner {
+      height: 250px;
+      
+    }
+
+    .navLink {
+      text-align: center;
+    }
+
+    .contentContainer { 
+      width: 100%;
+      margin-left: 0px;
+      margin-top: 10px;
+    }
+    .contentRow2 {
+      height: 450px;
+      margin-bottom: 20px;
+    }   
+    #scheduler, #findLocal { 
+      display: block;
+      width: 90%;
+      margin: 0px 20px;
+      height: 40%;
+    } 
+
+    #housing, #events, #socialBlock {
+      display: block;
+      width: 90%;
+      margin: 0px 20px;
+      height: 29%;
+    } 
+   
