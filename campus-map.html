@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>CSR : Interactive Map</title>
+
+    <!-- *****JQUERY***** -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- *****GOOGLE FONTS***** -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+      .container { /*WIREFRAME OVERRIDE*/
+        height: 100%;
+        overflow: visible;
+      }
+      .contentContainer { /*WIREFRAME OVERRIDE*/
+        height: 100%;
+      }
+      #map {
+        height: 100%;
+      }
+      #legend {
+        font-family: Arial, sans-serif;
+        background: #fff;
+        padding: 10px;
+        margin: 10px;
+        border: 3px solid #000;
+      }
+      #legend h3 {
+        margin-top: 0;
+        color: black;
+      }
+      #legend img {
+        vertical-align: middle;
+      }
+      div.mapPopUp {
+        display: box;
+        width: 260px;
+        height: 100%;
+      }
+      h2.mapPopUp {
+        font-family:arial, helvetica, sans-serif;
+        font-weight:bold;
+        font-size:10pt;
+      }
+      p.mapPopUp {
+        font-family: arial, helvetica, sans-serif;
+        font-size:8pt;
+      }
+      .footerContainer { /*WIREFRAME OVERRIDE*/
+        margin-top: -60px;
+      }
+    </style>
+</head>
+
+<body>
+<!-- ********PAGE CONTAINER******** -->
+<div class="container">
+
+<!-- ********HEADER(BANNER)******** -->
+<div class="banner">
+    <div class="bannerTitle">
+      <h1><strong>CSR|</strong>Condensed Student Resources</h1>
+      <h2>Getting where you want to be.</h2>
+    </div>
+    <nav class="navMenu">
+      <a class="navLink">Scheduler</a>
+      <a class="navLink">Campus Map</a>
+      <a class="navLink">Weather</a>
+      <a class="navLink">Events</a>
+    </nav>
+</div>
+
+<!-- ********MAIN CONTAINER******** -->
+<div class="contentContainer">
+
+  <!-- GOOGLE MAP API -->
+  <div id="map"></div>
+  <div id="legend"><h3>Legend</h3></div>
+
+</div>
+
+<div class="footerContainer">
+  <div class="footerText"><strong>CSR |</strong>Consolidated Student Resource
+  </div>
+  
+  <div class="footerText">
+      <a class="footerLink" href="">Personal Scheduler  |</a>
+      <a class="footerLink" href="">Campus Life  |</a>
+      <a class="footerLink" href="">weather &amp; Traffic  |</a>
+      <a class="footerLink" href="">UCI Events</a>
+  </div>
+
+</div>
+</div>
+    <script>
+
+      // GOOGLE MAP
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 33.645934, lng: -117.842716},
+          mapTypeId: 'roadmap',
+          zoom: 16,
+          // TURN OFF GOOGLE DEFAULT ICONS       
+          styles: [
+		      { // parking
+		        "featureType": "poi.business",
+		        "stylers": [
+		          { "visibility": "off" },  
+		        ]
+		      },
+		      { // bus stops
+		        "featureType": "transit.station.bus",
+		        "stylers": [
+		          { "visibility": "off" },  
+		        ]
+		      },
+          { // athletics
+            "featureType": "poi.sports_complex",
+            "stylers": [
+              { "visibility": "off" },  
+            ]
+          },
+          { // school buildings
+            "featureType": "poi.school",
+            "stylers": [
+              { "visibility": "off" },  
+            ]
+          },
+          { // more school buildings
+            "featureType": "poi.government",
+            "stylers": [
+              { "visibility": "off" },  
+            ]
+          },
+          { // medical buildings
+            "featureType": "poi.medical",
+            "stylers": [
+              { "visibility": "off" },  
+            ]
+          }
+		  ]
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+
+        // PINNED LOCATIONS
+        // Admissions
+        var admissions = [
+          { position: new google.maps.LatLng(33.6483671, -117.8412139),
+            type: 'admin',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Admissions Office</h2>'+
+              '<p class="mapPopUp">Test text to see how to load an infoWindow.</p>'+
+              '<p class="mapPopUp"><a href="http://www.uci.edu" target="_blank" class="mapPopUp">MORE DETAILS</a></p>'
+          }
+        ];
+
+        // Bookstore
+        var books = [
+          { position: new google.maps.LatLng(33.648849, -117.841629),
+            type: 'books'
+          }
+        ];
+
+        // Parking Lots
+        var parking = [          
+          { position: new google.maps.LatLng(33.643747, -117.835143),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.647194, -117.834799),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.646396, -117.836066),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.645521, -117.836457),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.646703, -117.837210),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.648098, -117.839129),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.647759, -117.840096),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.647305, -117.841508),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.645845, -117.846513),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.652151, -117.842644),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.653258, -117.845959),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.652074, -117.846737),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.650578, -117.846589),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.648795, -117.846764),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.647577, -117.845853),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.646619, -117.846606),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.647205, -117.848557),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.646417, -117.851241),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.643452, -117.850259),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.646619, -117.846606),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.642822, -117.851971),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.643441, -117.848157),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.643632, -117.846855),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.644740, -117.846319),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.642590, -117.846830),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.642975, -117.844699),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.642610, -117.842462),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.643170, -117.837735),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(33.650084, -117.841879),
+            type: 'parking'
+          }
+        ];
+
+        // Parking Kiosks
+        var kiosk = [
+          { position: new google.maps.LatLng(33.646786, -117.835397),
+            type: 'parkKiosk'
+          }, {
+            position: new google.maps.LatLng(33.646793, -117.834499),
+            type: 'parkKiosk'
+          }, {
+            position: new google.maps.LatLng(33.647775, -117.838250),
+            type: 'parkKiosk'
+          }, {
+            position: new google.maps.LatLng(33.648180, -117.840127),
+            type: 'parkKiosk'
+          }, {
+            position: new google.maps.LatLng(33.649750, -117.842011),
+            type: 'parkKiosk'
+          }, {
+            position: new google.maps.LatLng(33.651257, -117.846700),
+            type: 'parkKiosk'
+          }, {
+            position: new google.maps.LatLng(33.644259, -117.846328),
+            type: 'parkKiosk'
+          }, {
+            position: new google.maps.LatLng(33.642297, -117.851297),
+            type: 'parkKiosk'
+          }, {
+            position: new google.maps.LatLng(33.643111, -117.846866),
+            type: 'parkKiosk'
+          }, {
+            position: new google.maps.LatLng(33.642265, -117.843634),
+            type: 'parkKiosk'
+          }, {
+            position: new google.maps.LatLng(33.642949, -117.836649),
+            type: 'parkKiosk'
+          }
+        ];
+
+        // Public Bus Stops
+        var buses = [
+          { position: new google.maps.LatLng(33.648860, -117.829731),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.649300, -117.830161),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.648896, -117.830654),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.648331, -117.831857),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.648433, -117.832822),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.647720, -117.834781),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.648017, -117.834894),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.649046, -117.839751),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.649446, -117.839862),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.654485, -117.844439),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.648379, -117.852914),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.648177, -117.853275),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.646191, -117.853939),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.645729, -117.854600),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.643618, -117.854784),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.642701, -117.854859),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.640665, -117.853297),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.639908, -117.853480),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.648918, -117.844897),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.649066, -117.845156),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.647833, -117.847166),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.648918, -117.844897),
+            type: 'bus'
+          }, {
+            position: new google.maps.LatLng(33.647943, -117.847314),
+            type: 'bus'
+          }
+        ];
+        
+        // UCI Shuttle Bus Stops
+        var shuttles = [
+          { position: new google.maps.LatLng(33.647783, -117.834502),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.649287, -117.839589),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.649212, -117.840032),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.653059, -117.845570),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.648353, -117.840420),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.648898, -117.845123),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.649087, -117.844950),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.648090, -117.847021),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.648079, -117.847201),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.646487, -117.848486),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.643649, -117.849144),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.643089, -117.843465),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.642532, -117.841811),
+            type: 'shuttle'
+          }, {
+            position: new google.maps.LatLng(33.642887, -117.839901),
+            type: 'shuttle'
+          }
+        ];
+        
+        // Food & Restaurants
+        var food = [
+          { position: new google.maps.LatLng(33.650153, -117.838955),
+            type: 'food'
+          }, {
+            position: new google.maps.LatLng(33.649589, -117.831385),
+            type: 'food'
+          }, {
+            position: new google.maps.LatLng(33.648316, -117.842356),
+            type: 'food'
+          }, {
+            position: new google.maps.LatLng(33.649802, -117.844743),
+            type: 'food'
+          }, {
+            position: new google.maps.LatLng(33.651105, -117.845516),
+            type: 'food'
+          }, {
+            position: new google.maps.LatLng(33.646050, -117.849131),
+            type: 'food'
+          }, {
+            position: new google.maps.LatLng(33.645948, -117.844496),
+            type: 'food'
+          }, {
+            position: new google.maps.LatLng(33.643867, -117.843527),
+            type: 'food'
+          }, {
+            position: new google.maps.LatLng(33.643424, -117.841132),
+            type: 'food'
+          }, {
+            position: new google.maps.LatLng(33.645022, -117.834969),
+            type: 'food'
+          }, {
+            position: new google.maps.LatLng(33.644844, -117.836768),
+            type: 'food'
+          }, {
+            position: new google.maps.LatLng(33.645516, -117.839137),
+            type: 'food'
+          }, {
+            position: new google.maps.LatLng(33.645531, -117.840622),
+            type: 'food'
+          }
+        ];
+        
+        // Theatres & Entertainment
+        var theatres = [
+          { position: new google.maps.LatLng(33.649144, -117.840707),
+            type: 'theatre'
+          }, {
+            position: new google.maps.LatLng(33.649351, -117.847091),
+            type: 'theatre'
+          }, {
+            position: new google.maps.LatLng(33.650002, -117.838290),
+            type: 'theatre'
+          }
+        ];
+        
+        // Sports & Athletics
+        var sports = [
+          { position: new google.maps.LatLng(33.650297, -117.848774),
+            type: 'sports'
+          }
+        ];
+
+
+        // CREATE MARKERS
+        var marker;
+        var visibleA = false;
+        var visibleBo = false;
+        var visibleP = false;
+        var visibleK = false;
+        var visibleBu = false;
+        var visibleSh = false;
+        var visibleF = false;
+        var visibleT = false;
+        var visibleSp = false;
+        var markersAdmissions = [];
+        var markersBooks = [];
+        var markersParking = [];
+        var markersKiosks = [];
+        var markersBuses = [];
+        var markersShuttles = [];
+        var markersFood = [];
+        var markersTheatres = [];
+        var markersSports = [];
+
+        function admiss() {
+          if (visibleA === false) {
+            admissions.forEach(function(feature) { // load pin location data from above
+              var infowindow = new google.maps.InfoWindow({
+                content: admissions[0].infoContent
+              });
+              // insert pins onto map
+              marker = new google.maps.Marker({
+                position: feature.position,
+                icon: icons[feature.type].icon,
+                map: map
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+              markersAdmissions.push(marker);
+              visibleA = true;
+            });
+            $("#Admissions").attr("style", "opacity:1"); // darken legend button
+          }
+          else {
+            setMapOnAllA(null);
+            markersAdmissions = [];
+            visibleA = false;
+            $("#Admissions").attr("style", "opacity:0.5"); // lighten legend button           
+          }
+        }
+        function setMapOnAllA(map) {
+          for (var i = 0; i < markersAdmissions.length; i++) {
+          markersAdmissions[i].setMap(map);
+          }
+        }
+
+        function bks() {
+          if (visibleBo === false) {
+            books.forEach(function(feature) { // load pin location data from above
+              // insert pins onto map
+              marker = new google.maps.Marker({
+                position: feature.position,
+                icon: icons[feature.type].icon,
+                map: map
+              });
+              markersBooks.push(marker);
+              visibleBo = true;
+            });
+            $("#Books").attr("style", "opacity:1"); // darken legend button
+          }
+          else {
+            setMapOnAllBo(null);
+            markersBooks = [];
+            visibleBo = false;
+            $("#Books").attr("style", "opacity:0.5"); // lighten legend button           
+          }
+        }
+        function setMapOnAllBo(map) {
+          for (var i = 0; i < markersBooks.length; i++) {
+          markersBooks[i].setMap(map);
+          }
+        }
+
+        function parkng() {
+          if (visibleP === false) {
+            parking.forEach(function(feature) { // load pin location data from above
+              // insert pins onto map
+              marker = new google.maps.Marker({
+                position: feature.position,
+                icon: icons[feature.type].icon,
+                map: map
+              });
+              markersParking.push(marker);
+              visibleP = true;
+            });
+            $("#Parking").attr("style", "opacity:1"); // darken legend button
+          }
+          else {
+            setMapOnAllP(null);
+            markersParking = [];
+            visibleP = false;
+            $("#Parking").attr("style", "opacity:0.5"); // lighten legend button           
+          }
+        }
+        function setMapOnAllP(map) {
+          for (var i = 0; i < markersParking.length; i++) {
+          markersParking[i].setMap(map);
+          }
+        }
+
+        function pkiosks() {
+          if (visibleK === false) {
+            kiosk.forEach(function(feature) { // load pin location data from above
+              // insert pins onto map
+              marker = new google.maps.Marker({
+                position: feature.position,
+                icon: icons[feature.type].icon,
+                map: map
+              });
+              markersKiosks.push(marker);
+              visibleK = true;
+            });
+            $("#Kiosks").attr("style", "opacity:1"); // darken legend button
+          }
+          else {
+            setMapOnAllK(null);
+            markersKiosks = [];
+            visibleK = false;
+            $("#Kiosks").attr("style", "opacity:0.5"); // lighten legend button
+          }
+        }        
+        function setMapOnAllK(map) {
+          for (var i = 0; i < markersKiosks.length; i++) {
+          markersKiosks[i].setMap(map);
+          }
+        }
+
+        function bus() {
+          if (visibleBu === false) {
+            buses.forEach(function(feature) { // load pin location data from above
+              // insert pins onto map
+              marker = new google.maps.Marker({
+                position: feature.position,
+                icon: icons[feature.type].icon,
+                map: map
+              });
+              markersBuses.push(marker);
+              visibleBu = true;
+            });
+            $("#Buses").attr("style", "opacity:1"); // darken legend button
+          }
+          else {
+            setMapOnAllBu(null);
+            markersBuses = [];
+            visibleBu = false;
+            $("#Buses").attr("style", "opacity:0.5"); // lighten legend button
+          }
+        }        
+        function setMapOnAllBu(map) {
+          for (var i = 0; i < markersBuses.length; i++) {
+          markersBuses[i].setMap(map);
+          }
+        }
+
+        function shttle() {
+          if (visibleSh === false) {
+            shuttles.forEach(function(feature) { // load pin location data from above
+              // insert pins onto map
+              marker = new google.maps.Marker({
+                position: feature.position,
+                icon: icons[feature.type].icon,
+                map: map
+              });
+              markersShuttles.push(marker);
+              visibleSh = true;
+            });
+            $("#Shuttles").attr("style", "opacity:1"); // darken legend button
+          }
+          else {
+            setMapOnAllSh(null);
+            markersShuttles = [];
+            visibleSh = false;
+            $("#Shuttles").attr("style", "opacity:0.5"); // lighten legend button
+          }
+        }        
+        function setMapOnAllSh(map) {
+          for (var i = 0; i < markersShuttles.length; i++) {
+          markersShuttles[i].setMap(map);
+          }
+        }
+
+        function meals() {
+          if (visibleF === false) {
+            food.forEach(function(feature) { // load pin location data from above
+              // insert pins onto map
+              marker = new google.maps.Marker({
+                position: feature.position,
+                icon: icons[feature.type].icon,
+                map: map
+              });
+              markersFood.push(marker);
+              visibleF = true;
+            });
+            $("#Food").attr("style", "opacity:1"); // darken legend button
+          }
+          else {
+            setMapOnAllF(null);
+            markersFood = [];
+            visibleF = false;
+            $("#Food").attr("style", "opacity:0.5"); // lighten legend button
+          }
+        }        
+        function setMapOnAllF(map) {
+          for (var i = 0; i < markersFood.length; i++) {
+          markersFood[i].setMap(map);
+          }
+        }
+
+        function thtr() {
+          if (visibleT === false) {
+            theatres.forEach(function(feature) { // load pin location data from above
+              // insert pins onto map
+              marker = new google.maps.Marker({
+                position: feature.position,
+                icon: icons[feature.type].icon,
+                map: map
+              });
+              markersTheatres.push(marker);
+              visibleT = true;
+            });
+            $("#Theatre").attr("style", "opacity:1"); // darken legend button
+          }
+          else {
+            setMapOnAllT(null);
+            markersTheatres = [];
+            visibleT = false;
+            $("#Theatre").attr("style", "opacity:0.5"); // lighten legend button
+          }
+        }        
+        function setMapOnAllT(map) {
+          for (var i = 0; i < markersTheatres.length; i++) {
+          markersTheatres[i].setMap(map);
+          }
+        }
+
+        function sprt() {
+          if (visibleSp === false) {
+            sports.forEach(function(feature) { // load pin location data from above
+              // insert pins onto map
+              marker = new google.maps.Marker({
+                position: feature.position,
+                icon: icons[feature.type].icon,
+                map: map
+              });
+              markersSports.push(marker);
+              visibleSp = true;
+            });
+            $("#Sports").attr("style", "opacity:1"); // darken legend button
+          }
+          else {
+            setMapOnAllSp(null);
+            markersSports = [];
+            visibleSp = false;
+            $("#Sports").attr("style", "opacity:0.5"); // lighten legend button
+          }
+        }        
+        function setMapOnAllSp(map) {
+          for (var i = 0; i < markersSports.length; i++) {
+          markersSports[i].setMap(map);
+          }
+        }
+
+        // LEGEND
+        var legend = document.getElementById('legend');
+        for (var key in icons) {
+          var type = icons[key];
+          var name = type.name;
+          var id = type.name; // added to target clicks on legend icons
+          var icon = type.icon;
+          var div = document.createElement('div');
+          div.innerHTML = '<img src="' + icon + '" id="' + id +'" style="cursor:pointer;opacity:0.5"> ' + name;
+          legend.appendChild(div);
+        }
+        // Append bike icon and 'CLEAR ALL'
+        div.innerHTML = '<img src="images/bike.png" id="Bike" style="cursor:pointer;opacity:0.5"> ' + 'Routes<br><img src="images/clear.png" id="Clear" style="cursor:pointer">';
+          legend.appendChild(div);
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+        
+        // ADD / REMOVE BIKE MAP LAYER
+        var bikeOn;
+        var bikeLayer;
+        function bikeRoutes() {
+          if (bikeOn === undefined || bikeOn === false) {
+            bikeLayer = new google.maps.BicyclingLayer();
+            bikeLayer.setMap(map);
+            $("#Bike").attr("style", "opacity:1");
+            bikeOn = true;
+          }  
+          else {
+            bikeLayer.setMap(null);
+            bikeOn = false;
+          }
+        }
+
+        // CLEAR ALL BUTTON
+        function clearAll() {
+          setMapOnAllA(null);
+          visibleA = false;
+          $("#Admissions").attr("style", "opacity:0.5");
+          setMapOnAllBo(null);
+          visibleBo = false;
+          $("#Books").attr("style", "opacity:0.5");
+          setMapOnAllP(null);
+          visibleP = false;
+          $("#Parking").attr("style", "opacity:0.5");
+          setMapOnAllK(null);
+          visibleK = false;
+          $("#Kiosks").attr("style", "opacity:0.5");
+          setMapOnAllBu(null);
+          visibleBu = false;
+          $("#Buses").attr("style", "opacity:0.5");
+          setMapOnAllSh(null);
+          visibleSh = false;
+          $("#Shuttles").attr("style", "opacity:0.5");
+          setMapOnAllF(null);
+          visibleF = false;
+          $("#Food").attr("style", "opacity:0.5");
+          setMapOnAllT(null);
+          visibleT = false;
+          $("#Theatre").attr("style", "opacity:0.5");
+          setMapOnAllSp(null);
+          visibleSp = false;
+          $("#Sports").attr("style", "opacity:0.5");
+          bikeLayer.setMap(null);
+          bikeOn = false;
+          $("#Bike").attr("style", "opacity:0.5");
+        }
+
+        // Listeners on Legend icons
+        $("#Admissions").on("click", admiss);
+        $("#Books").on("click", bks);
+        $("#Parking").on("click", parkng);
+        $("#Kiosks").on("click", pkiosks);
+        $("#Buses").on("click", bus);
+        $("#Shuttles").on("click", shttle);
+        $("#Food").on("click", meals);
+        $("#Theatre").on("click", thtr);
+        $("#Sports").on("click", sprt);
+        $("#Bike").on("click", bikeRoutes);
+        $("#Clear").on("click", clearAll);
+
+      } // END OF MAIN MAP LOAD
+
+
+      // ICONS
+      var iconBase = 'images/';
+        var icons = {
+          admin: {
+            name: 'Admissions',
+            icon: iconBase + 'admin.png'
+          },
+          books: {
+            name: 'Books',
+            icon: iconBase + 'books.png'
+          },
+          parking: {
+            name: 'Parking',
+            icon: iconBase + 'parking.png'
+          },
+          parkKiosk: {
+            name: 'Kiosks',
+            icon: iconBase + 'parkingKiosk.png'
+          },
+          bus: {
+            name: 'Buses',
+            icon: iconBase + 'bus.png'
+          },
+          shuttle: {
+            name: 'Shuttles',
+            icon: iconBase + 'shuttle.png'
+          },
+          food: {
+            name: 'Food',
+            icon: iconBase + 'food.png'
+          },
+          theatre: {
+            name: 'Theatre',
+            icon: iconBase + 'theatre.png'
+          },
+          sports: {
+            name: 'Sports',
+            icon: iconBase + 'sports.png'
+          },
+          // blank necessary for 'Sports' to appear in Legend
+          blank: {
+            name: 'Blank',
+            icon: iconBase + 'sports.png'
+          }
+        };
+
+
+        // GEOLOCATION
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('YOU ARE HERE');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+
+      // ERROR HANDLER FOR GEOLOCATION
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+
+    <!-- Google API -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjDBoGica2XNgdy4WZ41sQf-Hiw5cotts&callback=initMap">
+    </script>
+</body>
+</html>

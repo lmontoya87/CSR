@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>CSR : Weather &amp; Traffic</title>
+
+    <!-- *****JQUERY***** -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+	<!-- *****GOOGLE FONTS***** -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+    	.container { /*WIREFRAME OVERRIDE*/
+	      	height: 100%;
+	        overflow: visible;
+	    }
+	    .contentContainer { /*WIREFRAME OVERRIDE*/
+	        height: 100%;
+	    }
+	    #weatherResults {
+	    	background-image: url("images/weather.png");
+	    	background-size: 100%;
+	    	background-repeat: no-repeat;
+    		background-position: center-top;
+    		background-color: #50657f;
+    		height: 160px;
+	    }
+	    #weatherResults div:first-of-type {
+	    	padding: 10px;
+	    }
+	    h3 {margin: 0;
+	    	margin-left: -10px;
+	    }
+	    .white {
+	    	color: white;
+	    }
+	    #map {
+			height: 100%;
+	    }
+	    .footerContainer { /*WIREFRAME OVERRIDE*/
+		  margin-top: 160px;
+		}
+    </style>
+</head>
+
+<body>
+<!-- ********PAGE CONTAINER******** -->
+<div class="container">
+
+<!-- ********HEADER(BANNER)******** -->
+<div class="banner">
+		<div class="bannerTitle">
+			<h1><strong>CSR|</strong>Condensed Student Resources</h1>
+			<h2>Getting where you want to be.</h2>
+		</div>
+		<nav class="navMenu">
+	      <a class="navLink">Scheduler</a>
+	      <a class="navLink">Campus Map</a>
+	      <a class="navLink">Weather</a>
+	      <a class="navLink">Events</a>
+	    </nav>
+</div>
+
+<!-- ********MAIN CONTAINER******** -->
+<div class="contentContainer">
+
+<!-- *****WEATHER AND TRAFFIC***** -->
+	<div id="weatherResults">
+		<div>
+			<div id="city" class="white"></div>
+			<div id="temp" class="white"></div>
+			<div id="skies" class="white"></div>
+			<div id="wind" class="white"></div>
+			<div id="humidity" class="white"></div>
+		</div>
+	</div>
+
+<!-- GOOGLE TRAFFIC MAP -->
+	<div id="map"></div>
+</div>
+
+<div class="footerContainer">
+	<div class="footerText"><strong>CSR |</strong>Consolidated Student Resource
+	</div>
+	
+	<div class="footerText">
+		<a class="footerLink" href="">Personal Scheduler  |</a>
+		<a class="footerLink" href="">Campus Life  |</a>
+		<a class="footerLink" href="">weather &amp; Traffic  |</a>
+		<a class="footerLink" href="">UCI Events</a>
+	</div>
+
+</div>
+</div>
+
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script>
+    // WEATHER API
+    var APIKey = "4d32836b379bcc900b58a0d861ba8a1c";
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?" +
+      "q=Irvine,California&units=imperial&appid=" + APIKey;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+      .done(function(response) {
+        $("#city").html("<h3>" + response.name + " Weather & Traffic</h3>");
+        $("#temp").html("Temperature (F) " + response.main.temp);
+        $("#skies").html("Skies: " + response.weather[0].description);
+        $("#wind").html("Wind Speed: " + response.wind.speed);
+        $("#humidity").html("Humidity: " + response.main.humidity);
+      });
+
+	// GOOGLE MAP API
+	function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: {lat: 33.645890, lng: -117.842758}
+        });
+
+        var trafficLayer = new google.maps.TrafficLayer();
+        trafficLayer.setMap(map);
+      }
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjDBoGica2XNgdy4WZ41sQf-Hiw5cotts&callback=initMap">
+</script>
+</body>
+</html>
