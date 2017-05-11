@@ -6,7 +6,7 @@ html, body{
   min-width: 405px;
 }
 
-.container {
+.wrapper {
   margin: 0px auto -60px; /*; sticky footer*/
   min-height: 100%; /*sticky footer*/
   overflow: hidden; /*sticky footer*/
@@ -25,6 +25,10 @@ html, body{
 h1 {
   margin: 0px;
   text-shadow: 2px 2px #000;
+}
+
+a {
+  text-decoration: none;
 }
 
 .bannerTitle, h3 { 
@@ -248,14 +252,10 @@ h1 {
       height: 345px;
     }
     #scheduler, #campusLife, #weather, #events, #socialBlock {
-      display: block;
       width: 100%;
       height: 100px;
       background-size: cover;
       margin: 0 0 15px;
-    }
-    #scheduler {
-      margin-top: -18px;
     }
     #campusLife {
       float: none;
@@ -267,18 +267,18 @@ h1 {
       width: 25%; height: 100%;
     }
 
-      .hotspot-container .twitter-hotspot {
+    .hotspot-container .twitter-hotspot {
       width: 25%; height: 100%;
       left: 25%;
     }
 
-      .hotspot-container .facebook-hotspot {
+    .hotspot-container .facebook-hotspot {
       width: 25%; height: 100%;
       left: 50%;
       top: 0;
     }
 
-      .hotspot-container .dribble-hotspot {
+    .hotspot-container .dribble-hotspot {
       width: 25%; height: 100%;
       left: 75%;
       top: 0;
