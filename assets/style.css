@@ -1,32 +1,29 @@
 html, body{
   font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-width: 405px;
 }
 
 .container {
   margin: 0px auto;
-}
-
-.container2 {
-  margin: auto;
-  padding: 0px;
-  width: 100%;
+  height: 100%;
 }
 
 /******BANNER******/
 .banner { 
-  background-color: rgb(68,92,96);
-  background-image: url("images/banner2.png");
-  /*background-repeat: no-repeat;*/
+  background-color: rgb(14,34,64);
   width: auto;
   height: 300px;
-  /*margin-bottom: 10px*/
-  background-size: 100% 100%;
   background-repeat: no-repeat;
-  /*background-image: url("http://realizedworth.com/wp-content/uploads/2012/06/RESOURCES-WEB-BANNER-1024x237.jpg");*/
+  background-size: cover;
+  background-image: url("../images/banner.png");
 }
 
 h1 {
   margin: 0px;
+  text-shadow: 2px 2px #000;
 }
 
 .bannerTitle, h3 { 
@@ -34,116 +31,142 @@ h1 {
   color: white;
 }
 
-/*div.transBox {
-  padding: 20px 0px 0px 20px;
-  background-color: #ffffff;
-    opacity: 0.6;
-    filter: alpha(opacity=60);  For IE8 and earlier 
-}*/
-
-/*div.transbox p {
-  margin: 5%;
-  font-weight: bold;
-  color: #000000;
-  margin: 20px;
-  width: 400px;
-  height: 225px;
-}*/
+.navMenu {
+  float: right;
+  margin: 0 12px;
+}
 
 .navLink {
-  float: right;
-  margin: 20px;
+  margin: 10px;
+  text-shadow: 2px 2px #000;
   font-family: 'Open Sans', sans-serif;
-  color: white;
+  color: rgb(254,197,36);
 }
 
 
 /******MAIN CONTAINER******/
-.contentContainer {
+.contentContainer { 
   background-color: white;
   width: 80%;
-  margin-top: -60px;
-  margin-left: 120px;
+  height: 100%;
+  padding: 15px;
+  margin: -60px auto 0;
 }
+
 .contentRow1 { 
-  /*width: auto;*/
-  height: 300px;
+  width: 100%;
+  height: 250px;
+  margin-bottom: 15px;
 }
 
 .contentRow2 {
-  /*width: auto;*/
-  height: 300px;
+  width: 100%;
+  height: 250px;
 }
 
 /******ROW 1 SCHEDULER AND MAP******/
-
-#scheduler, #findLocal {
+#scheduler, #campusLife {
   display: inline-block;
-  margin: 10px;
-  height: 93%;
+  height: 100%;
   color: white;
+  text-shadow: 2px 2px #000;
   font-weight: bolder;
 }
-#scheduler { 
-  /*background-color: rgb(167,226,236);*/ 
-  margin-left: 20px;
+
+#scheduler {  
   width: 60%;
-  background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-image: url("http://eastpointfellowship.com/wp-content/uploads/2013/06/calendar-banner-960x250.jpg");
-  /*opacity:0.5;*/
-
+  background-size: cover;
+  background-image: url("../images/calendar2.png");
 }
 
-#findLocal { 
+#campusLife {  border: solid 1px pink;
+  float: right;
   background-color: rgb(77,104,109);  
-  margin-left: 0px;
-  width: 35%;
-  background-size: 100% 100%;
+  margin-left: 15px;
+  width: 38%;
   background-repeat: no-repeat;
-  background-image: url("https://www.irvinecompanyapartments.com/locations/los-angeles/playa-vista/_jcr_content/par/section_container/width-container/containerwidth/new_mondrian/grid/link_element_4436032701/modalImage/large.transform/mediaGalleryItemLarge/image.jpg");
+  background-size: cover;
+  background-image: url("../images/eureka.png");
 }
 
-/******ROW 2 HOUSING, EVENTS AND SOCIAL MEDIA******/
-#housing, #events, #socialBlock {
+/******ROW 2 WEATHER, EVENTS AND SOCIAL MEDIA******/
+#weather, #events, #socialBlock {
   display: inline-block;
-  margin-left: 10px;
-  height: 93%;
+  height: 100%;
   color: white;
+  text-shadow: 2px 2px #000;
   font-weight: bolder;
-
 }
 
-#housing { 
+#weather { 
   background-color: rgb(68,92,96);
-  margin-left: 20px;
   width: 31.25%;
-  background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-image: url("http://ktgy.com/wp-content/uploads/2015/11/UC-Irvine-Camino-del-Sol_00-5-920x684.jpg");
+  background-image: url("../images/weather.png");
 }
 
 #events { 
   background-color: rgb(122,165,172);
   width: 31.25%;
-  background-size: 100% 100%;
+  margin-left: 20px;
+  margin-right: 20px;
   background-repeat: no-repeat;
-  background-image: url("images/events.jpg");
+  background-size: 100%;
+  background-image: url("../images/barclay2.png");
 }
 
 #socialBlock {background-color: rgb(50,68,70);
-  background-image: url("images/weather.png");
+  float: right;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  /*background-image: url("https://s-media-cache-ak0.pinimg.com/originals/d4/43/b7/d443b7d942d632efe0351be269f63db7.jpg");*/
+  background-image: url("../images/social-icons.png");
   width: 31.25%;
+}
 
+/******SOCIAL MEDIA HOTSPOTS******/
+.hotspot-container {
+  width: 200px; height: 200px;
+  position: relative;
+  background-size: 100%;
+  background: url("../images/social-icons.png") no-repeat;
+}
+
+.hotspot-container .pinterest-hotspot { border: 1px solid white;
+  width: 50px; height: 50px;
+  position: absolute;
+  top: 40px; 
+  left: 55px;
+}
+
+
+  .hotspot-container .twitter-hotspot { border: 1px solid red;
+  width: 50px; height: 50px;
+  position: absolute;
+  top: 40px; 
+  left: 220px;
+}
+
+
+  .hotspot-container .facebook-hotspot { border: 1px solid black;
+  width: 50px; height: 50px;
+  position: absolute;
+  top: 170px; 
+  left: 55px;
+}
+
+
+  .hotspot-container .dribble-hotspot { border: 1px solid blue;
+  width: 50px; height: 50px;
+  position: absolute;
+  top: 170px; 
+  left: 220px;
 }
 
 
 /******FOOTER******/
 .footerContainer { 
-  background-color: rgb(68,92,96);
+  background-color: rgb(14,34,64);
   width: auto;
   height: 70px;
   padding-top: 20px;
@@ -155,11 +178,34 @@ h1 {
 }
 
 .footerText a {
-  color: white;
+  color: rgb(254,197,36);
   text-decoration: none;
 }
 
-/******ON HOVER******/
+/******SCHEDULER PAGE******/
+form {
+  border: 2px solid;
+  border-color: rgb(14,34,64);
+  border-radius: 15px;
+}
+.formGroup, .submitBtn { 
+  width: auto;
+  margin:15px;
+}
+input {
+  width: 95%;
+  line-height: 2em;
+}
+
+#notes-input {
+  line-height: 6em;
+}
+
+.submitBtn {
+  background-color: rgb(254,197,36);
+}
+
+
 
 
 /******MEDIA QUERIES******/
@@ -167,65 +213,35 @@ h1 {
 
     .contentContainer { 
       width: 90%;
-      margin-left: 50px;
+      /*margin-left: 50px;*/
     }
     #scheduler {
       width: 50%;
     }
-    #findLocal {
+    #campusLife {
       width: 45%;
     }
+}    
 
 @media screen and (max-width: 1065px) {
 
     .contentContainer { 
-      width: 92%;
-      margin-left: 40px;
+      width: 93%;
+      /*margin-left: 40px;*/
     }
-    #findLocal {
+    #campusLife {
       width: 44%;
     }
 
-    #housing, #events, #socialBlock {
+    #weather, #events, #socialBlock {
       width: 30.75%;
     }
+}  
 
-@media screen and (max-width: 875px) {
-
-    .contentContainer { 
-      width: 93%;
-      margin-left: 30px;
-    }
-    #findLocal {
-      width: 43%;
-    }
-
-    #housing, #events, #socialBlock {
-      width: 30.25%;
-    }
-
-@media screen and (max-width: 815px) {
-
-    .contentContainer { 
-      width: 94%;
-      margin-left: 25px;
-    } 
-    #findLocal {
-      width: 43%;
-    }   
-
-@media screen and (max-width: 760px) {
-
-    .contentContainer { 
-      width: 95%;
-      margin-left: 15px;
-    }
-
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 730px) {
 
     .banner {
       height: 250px;
-      
     }
 
     .navLink {
@@ -237,11 +253,13 @@ h1 {
       margin-left: 0px;
       margin-top: 10px;
     }
+
     .contentRow2 {
       height: 450px;
       margin-bottom: 20px;
-    }   
-    #scheduler, #findLocal { 
+    }  
+
+    #scheduler, #campusLife { 
       display: block;
       width: 90%;
       margin: 0px 20px;
@@ -254,4 +272,4 @@ h1 {
       margin: 0px 20px;
       height: 29%;
     } 
-   
+}
