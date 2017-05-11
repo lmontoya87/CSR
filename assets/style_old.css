@@ -2,6 +2,7 @@ html, body{
   font-family: 'Open Sans', sans-serif;
 }
 
+
 .container {
   margin: 0px auto;
 }
@@ -14,14 +15,13 @@ html, body{
 
 /******BANNER******/
 .banner { 
-  background-color: rgb(68,92,96);
-  background-image: url("images/banner2.png");
-  /*background-repeat: no-repeat;*/
-  width: auto;
-  height: 300px;
+  /*background-color: rgb(68,92,96);*/
+  background-image: url(images/banner2.png);
+  background-repeat: no-repeat;
+  /*width: auto;*/
+  height: 225px;
   /*margin-bottom: 10px*/
   background-size: 100% 100%;
-  background-repeat: no-repeat;
   /*background-image: url("http://realizedworth.com/wp-content/uploads/2012/06/RESOURCES-WEB-BANNER-1024x237.jpg");*/
 }
 
@@ -34,21 +34,6 @@ h1 {
   color: white;
 }
 
-/*div.transBox {
-  padding: 20px 0px 0px 20px;
-  background-color: #ffffff;
-    opacity: 0.6;
-    filter: alpha(opacity=60);  For IE8 and earlier 
-}*/
-
-/*div.transbox p {
-  margin: 5%;
-  font-weight: bold;
-  color: #000000;
-  margin: 20px;
-  width: 400px;
-  height: 225px;
-}*/
 
 .navLink {
   float: right;
@@ -58,12 +43,24 @@ h1 {
 }
 
 
+
 /******MAIN CONTAINER******/
 .contentContainer {
   background-color: white;
   width: 80%;
   margin-top: -60px;
   margin-left: 120px;
+}
+
+/*.contentContainer2 {
+  background-color: white;
+  width: 80%;
+  margin-top: -60px;
+  margin-left: 120px;
+  background-size: 100% 100%;*/
+  /*background-repeat: no-repeat;*/
+  /*background-image: url("http://eastpointfellowship.com/wp-content/uploads/2013/06/calendar-banner-960x250.jpg");*/
+  /*opacity:0.5;*/
 }
 .contentRow1 { 
   /*width: auto;*/
@@ -128,17 +125,17 @@ h1 {
   width: 31.25%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-image: url("images/events.jpg");
+  background-image: url("https://i.ytimg.com/vi/99syIT0WgXE/maxresdefault.jpg");
 }
 
 #socialBlock {background-color: rgb(50,68,70);
-  background-image: url("images/weather.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  /*background-image: url("https://s-media-cache-ak0.pinimg.com/originals/d4/43/b7/d443b7d942d632efe0351be269f63db7.jpg");*/
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/d4/43/b7/d443b7d942d632efe0351be269f63db7.jpg");
   width: 31.25%;
 
 }
+
 
 
 /******FOOTER******/
@@ -163,9 +160,11 @@ h1 {
 
 
 /******MEDIA QUERIES******/
+
 @media screen and (max-width: 1200px) {
 
-    .contentContainer { 
+
+    .contentContainer2 { 
       width: 90%;
       margin-left: 50px;
     }
@@ -178,7 +177,7 @@ h1 {
 
 @media screen and (max-width: 1065px) {
 
-    .contentContainer { 
+    .contentContainer2 { 
       width: 92%;
       margin-left: 40px;
     }
@@ -192,7 +191,7 @@ h1 {
 
 @media screen and (max-width: 875px) {
 
-    .contentContainer { 
+    .contentContainer2 { 
       width: 93%;
       margin-left: 30px;
     }
@@ -206,7 +205,7 @@ h1 {
 
 @media screen and (max-width: 815px) {
 
-    .contentContainer { 
+    .contentContainer2 { 
       width: 94%;
       margin-left: 25px;
     } 
@@ -216,7 +215,7 @@ h1 {
 
 @media screen and (max-width: 760px) {
 
-    .contentContainer { 
+    .contentContainer2 { 
       width: 95%;
       margin-left: 15px;
     }
@@ -232,7 +231,7 @@ h1 {
       text-align: center;
     }
 
-    .contentContainer { 
+    .contentContainer2 { 
       width: 100%;
       margin-left: 0px;
       margin-top: 10px;
