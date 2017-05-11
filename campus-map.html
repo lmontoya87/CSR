@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
-    <title>CSR : Interactive Map</title>
+    <title>CSR : UCI Interactive Map</title>
 
     <!-- *****JQUERY***** -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
@@ -13,7 +13,7 @@
   <!-- *****GOOGLE FONTS***** -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <style>
-      .container { /*WIREFRAME OVERRIDE*/
+      .wrapper { /*WIREFRAME OVERRIDE*/
         height: 100%;
         overflow: visible;
       }
@@ -59,21 +59,22 @@
 
 <body>
 <!-- ********PAGE CONTAINER******** -->
-<div class="container">
+  <div class="wrapper">
 
-<!-- ********HEADER(BANNER)******** -->
-<div class="banner">
-    <div class="bannerTitle">
-      <h1><strong>CSR|</strong>Condensed Student Resources</h1>
-      <h2>Getting where you want to be.</h2>
+  <!-- ********HEADER(BANNER)******** -->
+    <div class="banner">
+        <div class="bannerTitle">
+          <h1><strong>CSR|</strong>Condensed Student Resources</h1>
+          <h2>Getting where you want to be.</h2>
+        </div>
+        <nav class="navMenu">
+          <a href="index.html" class="navLink">Home</a>
+          <a href="scheduler.html" class="navLink">Scheduler</a>
+          <a href="campus-map.html" class="navLink">Campus Map</a>
+          <a href="weather-traffic.html" class="navLink">Weather</a>
+          <a href="events.html" class="navLink">Events</a>
+        </nav>
     </div>
-    <nav class="navMenu">
-      <a class="navLink">Scheduler</a>
-      <a class="navLink">Campus Map</a>
-      <a class="navLink">Weather</a>
-      <a class="navLink">Events</a>
-    </nav>
-</div>
 
 <!-- ********MAIN CONTAINER******** -->
 <div class="contentContainer">
@@ -89,10 +90,10 @@
   </div>
   
   <div class="footerText">
-      <a class="footerLink" href="">Personal Scheduler  |</a>
-      <a class="footerLink" href="">Campus Life  |</a>
-      <a class="footerLink" href="">weather &amp; Traffic  |</a>
-      <a class="footerLink" href="">UCI Events</a>
+      <a class="footerLink" href="scheduler.html">Personal Scheduler  |</a>
+      <a class="footerLink" href="campus-map.html">Campus Map  |</a>
+      <a class="footerLink" href="weather-traffic.html">Weather &amp; Traffic  |</a>
+      <a class="footerLink" href="events.html">UCI Events</a>
   </div>
 
 </div>
@@ -761,7 +762,7 @@
           legend.appendChild(div);
         }
         // Append bike icon and 'CLEAR ALL'
-        div.innerHTML = '<img src="images/bike.png" id="Bike" style="cursor:pointer;opacity:0.5"> ' + 'Routes<br><img src="images/clear.png" id="Clear" style="cursor:pointer">';
+        div.innerHTML = '<img src="assets/images/bike.png" id="Bike" style="cursor:pointer;opacity:0.5"> ' + 'Routes<br><img src="assets/images/clear.png" id="Clear" style="cursor:pointer">';
           legend.appendChild(div);
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
         
@@ -832,7 +833,7 @@
 
 
       // ICONS
-      var iconBase = 'images/';
+      var iconBase = 'assets/images/';
         var icons = {
           admin: {
             name: 'Admissions',

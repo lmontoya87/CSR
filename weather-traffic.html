@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
-    <title>CSR : Weather &amp; Traffic</title>
+    <title>CSR : Irvine Weather &amp; Traffic</title>
 
     <!-- *****JQUERY***** -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
@@ -13,7 +13,7 @@
 	<!-- *****GOOGLE FONTS***** -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <style>
-    	.container { /*WIREFRAME OVERRIDE*/
+    	.wrapper { /*WIREFRAME OVERRIDE*/
 	      	height: 100%;
 	        overflow: visible;
 	    }
@@ -21,7 +21,7 @@
 	        height: 100%;
 	    }
 	    #weatherResults {
-	    	background-image: url("images/weather.png");
+	    	background-image: url("assets/images/weatherBanner.png");
 	    	background-size: 100%;
 	    	background-repeat: no-repeat;
     		background-position: center-top;
@@ -48,21 +48,22 @@
 
 <body>
 <!-- ********PAGE CONTAINER******** -->
-<div class="container">
+	<div class="wrapper">
 
-<!-- ********HEADER(BANNER)******** -->
-<div class="banner">
-		<div class="bannerTitle">
-			<h1><strong>CSR|</strong>Condensed Student Resources</h1>
-			<h2>Getting where you want to be.</h2>
+	<!-- ********HEADER(BANNER)******** -->
+		<div class="banner">
+				<div class="bannerTitle">
+					<h1><strong>CSR|</strong>Condensed Student Resources</h1>
+					<h2>Getting where you want to be.</h2>
+				</div>
+				<nav class="navMenu">
+					<a href="index.html" class="navLink">Home</a>
+					<a href="scheduler.html" class="navLink">Scheduler</a>
+					<a href="campus-map.html" class="navLink">Campus Map</a>
+					<a href="weather-traffic.html" class="navLink">Weather</a>
+					<a href="events.html" class="navLink">Events</a>
+				</nav>
 		</div>
-		<nav class="navMenu">
-	      <a class="navLink">Scheduler</a>
-	      <a class="navLink">Campus Map</a>
-	      <a class="navLink">Weather</a>
-	      <a class="navLink">Events</a>
-	    </nav>
-</div>
 
 <!-- ********MAIN CONTAINER******** -->
 <div class="contentContainer">
@@ -87,10 +88,10 @@
 	</div>
 	
 	<div class="footerText">
-		<a class="footerLink" href="">Personal Scheduler  |</a>
-		<a class="footerLink" href="">Campus Life  |</a>
-		<a class="footerLink" href="">weather &amp; Traffic  |</a>
-		<a class="footerLink" href="">UCI Events</a>
+		<a class="footerLink" href="scheduler.html">Personal Scheduler  |</a>
+		<a class="footerLink" href="campus-map.html">Campus Map  |</a>
+		<a class="footerLink" href="weather-traffic.html">Weather &amp; Traffic  |</a>
+		<a class="footerLink" href="events.html">UCI Events</a>
 	</div>
 
 </div>
