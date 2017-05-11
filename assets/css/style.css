@@ -1,0 +1,275 @@
+html, body{
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-width: 405px;
+}
+
+.container {
+  margin: 0px auto;
+  height: 100%;
+}
+
+/******BANNER******/
+.banner { 
+  background-color: rgb(14,34,64);
+  width: auto;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../images/banner.png");
+}
+
+h1 {
+  margin: 0px;
+  text-shadow: 2px 2px #000;
+}
+
+.bannerTitle, h3 { 
+  margin-left: 20px; 
+  color: white;
+}
+
+.navMenu {
+  float: right;
+  margin: 0 12px;
+}
+
+.navLink {
+  margin: 10px;
+  text-shadow: 2px 2px #000;
+  font-family: 'Open Sans', sans-serif;
+  color: rgb(254,197,36);
+}
+
+
+/******MAIN CONTAINER******/
+.contentContainer { 
+  background-color: white;
+  width: 80%;
+  height: 100%;
+  padding: 15px;
+  margin: -60px auto 0;
+}
+
+.contentRow1 { 
+  width: 100%;
+  height: 250px;
+  margin-bottom: 15px;
+}
+
+.contentRow2 {
+  width: 100%;
+  height: 250px;
+}
+
+/******ROW 1 SCHEDULER AND MAP******/
+#scheduler, #campusLife {
+  display: inline-block;
+  height: 100%;
+  color: white;
+  text-shadow: 2px 2px #000;
+  font-weight: bolder;
+}
+
+#scheduler {  
+  width: 60%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../images/calendar2.png");
+}
+
+#campusLife {  border: solid 1px pink;
+  float: right;
+  background-color: rgb(77,104,109);  
+  margin-left: 15px;
+  width: 38%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../images/eureka.png");
+}
+
+/******ROW 2 WEATHER, EVENTS AND SOCIAL MEDIA******/
+#weather, #events, #socialBlock {
+  display: inline-block;
+  height: 100%;
+  color: white;
+  text-shadow: 2px 2px #000;
+  font-weight: bolder;
+}
+
+#weather { 
+  background-color: rgb(68,92,96);
+  width: 31.25%;
+  background-repeat: no-repeat;
+  background-image: url("../images/weather.png");
+}
+
+#events { 
+  background-color: rgb(122,165,172);
+  width: 31.25%;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("../images/barclay2.png");
+}
+
+#socialBlock {background-color: rgb(50,68,70);
+  float: right;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url("../images/social-icons.png");
+  width: 31.25%;
+}
+
+/******SOCIAL MEDIA HOTSPOTS******/
+.hotspot-container {
+  width: 200px; height: 200px;
+  position: relative;
+  background-size: 100%;
+  background: url("../images/social-icons.png") no-repeat;
+}
+
+.hotspot-container .pinterest-hotspot { border: 1px solid white;
+  width: 50px; height: 50px;
+  position: absolute;
+  top: 40px; 
+  left: 55px;
+}
+
+
+  .hotspot-container .twitter-hotspot { border: 1px solid red;
+  width: 50px; height: 50px;
+  position: absolute;
+  top: 40px; 
+  left: 220px;
+}
+
+
+  .hotspot-container .facebook-hotspot { border: 1px solid black;
+  width: 50px; height: 50px;
+  position: absolute;
+  top: 170px; 
+  left: 55px;
+}
+
+
+  .hotspot-container .dribble-hotspot { border: 1px solid blue;
+  width: 50px; height: 50px;
+  position: absolute;
+  top: 170px; 
+  left: 220px;
+}
+
+
+/******FOOTER******/
+.footerContainer { 
+  background-color: rgb(14,34,64);
+  width: auto;
+  height: 70px;
+  padding-top: 20px;
+}
+
+.footerText {
+  color: white;
+  margin-left: 20px;
+}
+
+.footerText a {
+  color: rgb(254,197,36);
+  text-decoration: none;
+}
+
+/******SCHEDULER PAGE******/
+form {
+  border: 2px solid;
+  border-color: rgb(14,34,64);
+  border-radius: 15px;
+}
+.formGroup, .submitBtn { 
+  width: auto;
+  margin:15px;
+}
+input {
+  width: 95%;
+  line-height: 2em;
+}
+
+#notes-input {
+  line-height: 6em;
+}
+
+.submitBtn {
+  background-color: rgb(254,197,36);
+}
+
+
+
+
+/******MEDIA QUERIES******/
+@media screen and (max-width: 1200px) {
+
+    .contentContainer { 
+      width: 90%;
+      /*margin-left: 50px;*/
+    }
+    #scheduler {
+      width: 50%;
+    }
+    #campusLife {
+      width: 45%;
+    }
+}    
+
+@media screen and (max-width: 1065px) {
+
+    .contentContainer { 
+      width: 93%;
+      /*margin-left: 40px;*/
+    }
+    #campusLife {
+      width: 44%;
+    }
+
+    #weather, #events, #socialBlock {
+      width: 30.75%;
+    }
+}  
+
+@media screen and (max-width: 730px) {
+
+    .banner {
+      height: 250px;
+    }
+
+    .navLink {
+      text-align: center;
+    }
+
+    .contentContainer { 
+      width: 100%;
+      margin-left: 0px;
+      margin-top: 10px;
+    }
+
+    .contentRow2 {
+      height: 450px;
+      margin-bottom: 20px;
+    }  
+
+    #scheduler, #campusLife { 
+      display: block;
+      width: 90%;
+      margin: 0px 20px;
+      height: 40%;
+    } 
+
+    #housing, #events, #socialBlock {
+      display: block;
+      width: 90%;
+      margin: 0px 20px;
+      height: 29%;
+    } 
+}
