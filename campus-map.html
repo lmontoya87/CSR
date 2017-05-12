@@ -39,7 +39,7 @@
       }
       div.mapPopUp {
         display: box;
-        width: 260px;
+        width: 250px;
         height: 100%;
       }
       h2.mapPopUp {
@@ -69,7 +69,7 @@
         </div>
         <nav class="navMenu">
           <a href="index.html" class="navLink">Home</a>
-          <a href="schedule.html" class="navLink">Scheduler</a>
+          <a href="scheduler.html" class="navLink">Scheduler</a>
           <a href="campus-map.html" class="navLink">Campus Map</a>
           <a href="weather-traffic.html" class="navLink">Weather</a>
           <a href="events.html" class="navLink">Events</a>
@@ -90,7 +90,7 @@
   </div>
   
   <div class="footerText">
-      <a class="footerLink" href="schedule.html">Personal Scheduler  |</a>
+      <a class="footerLink" href="scheduler.html">Personal Scheduler  |</a>
       <a class="footerLink" href="campus-map.html">Campus Map  |</a>
       <a class="footerLink" href="weather-traffic.html">Weather &amp; Traffic  |</a>
       <a class="footerLink" href="events.html">UCI Events</a>
@@ -106,6 +106,7 @@
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 33.645934, lng: -117.842716},
           mapTypeId: 'roadmap',
+          scrollwheel: false,
           zoom: 16,
           // TURN OFF GOOGLE DEFAULT ICONS       
           styles: [
@@ -157,8 +158,8 @@
             type: 'admin',
             infoContent: '<div class="mapPopUp">'+
               '<h2 class="mapPopUp">Admissions Office</h2>'+
-              '<p class="mapPopUp">Test text to see how to load an infoWindow.</p>'+
-              '<p class="mapPopUp"><a href="http://www.uci.edu" target="_blank" class="mapPopUp">MORE DETAILS</a></p>'
+              '<p class="mapPopUp">The UCI Admissions Office is located off Pereira Drive from W. Peltason Drive<br>UCI Office of Admissions<br>260 Aldrich Hall<br>Phone: 949-824-6703</p>'+
+              '<p class="mapPopUp"><a href="https://admissions.uci.edu/contact/index.php" target="_blank" class="mapPopUp">Website</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:admissions@uci.edu" class="mapPopUp">Email</a></p>'
           }
         ];
 
@@ -357,23 +358,43 @@
             type: 'bus'
           }, {
             position: new google.maps.LatLng(33.649066, -117.845156),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 79 / 213</h2>'+
+              '<p class="mapPopUp">Bus Route 79: Tustin - Newport Beach<br>Bus Route 213: Brea - Irvine via 55 freeway</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route079.pdf" target="_blank" class="mapPopUp">79 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route213.pdf" target="_blank" class="mapPopUp">213 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.647833, -117.847166),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 79 / 213</h2>'+
+              '<p class="mapPopUp">Bus Route 79: Tustin - Newport Beach<br>Bus Route 213: Brea - Irvine via 55 freeway</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route079.pdf" target="_blank" class="mapPopUp">79 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route213.pdf" target="_blank" class="mapPopUp">213 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.648918, -117.844897),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 79 / 213</h2>'+
+              '<p class="mapPopUp">Bus Route 79: Tustin - Newport Beach<br>Bus Route 213: Brea - Irvine via 55 freeway</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route079.pdf" target="_blank" class="mapPopUp">79 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route213.pdf" target="_blank" class="mapPopUp">213 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.647943, -117.847314),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 79 / 213</h2>'+
+              '<p class="mapPopUp">Bus Route 79: Tustin - Newport Beach<br>Bus Route 213: Brea - Irvine via 55 freeway</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route079.pdf" target="_blank" class="mapPopUp">79 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route213.pdf" target="_blank" class="mapPopUp">213 PDF</a></p>'
           }
         ];
         
         // UCI Shuttle Bus Stops
         var shuttles = [
           { position: new google.maps.LatLng(33.647783, -117.834502),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: W Line </h2>'+
+              '<p class="mapPopUp">Campus, Culver, Michelson and Carlson - Stops every 30 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.649287, -117.839589),
             type: 'shuttle'
@@ -455,7 +476,11 @@
             type: 'food'
           }, {
             position: new google.maps.LatLng(33.645531, -117.840622),
-            type: 'food'
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Phoenix Food Court</h2>'+
+              '<p class="mapPopUp">Phoenix Food Court is home to a variety of places to eat, including Greens to Go, Tortilla Fresca, Grille Works and Einstein Bros. Bagels. Phoenix Food Court, located next to Social Science Tower and Inner Ring Road, boasts a great view of Aldrich Park to take in the scenery as you enjoy your meal.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }
         ];
         
@@ -502,10 +527,10 @@
         var markersSports = [];
 
         function admiss() {
-          if (visibleA === false) {
+          if (visibleA === false) { // check if markers are visible
             admissions.forEach(function(feature) { // load pin location data from above
-              var infowindow = new google.maps.InfoWindow({
-                content: admissions[0].infoContent
+              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
+                content: feature.infoContent
               });
               // insert pins onto map
               marker = new google.maps.Marker({
@@ -513,22 +538,22 @@
                 icon: icons[feature.type].icon,
                 map: map
               });
-              marker.addListener('click', function() {
-                infowindow.open(map, marker);
+              marker.addListener('click', function() { // attach listener to open infoWindow on click
+                infoWindow.open(map, this);
               });
-              markersAdmissions.push(marker);
+              markersAdmissions.push(marker); // push marker into array
               visibleA = true;
             });
             $("#Admissions").attr("style", "opacity:1"); // darken legend button
           }
           else {
-            setMapOnAllA(null);
-            markersAdmissions = [];
+            setMapOnAllA(null); // clear markers from the map
+            markersAdmissions = []; // clear markers from array
             visibleA = false;
             $("#Admissions").attr("style", "opacity:0.5"); // lighten legend button           
           }
         }
-        function setMapOnAllA(map) {
+        function setMapOnAllA(map) { // loop to clear markers from map
           for (var i = 0; i < markersAdmissions.length; i++) {
           markersAdmissions[i].setMap(map);
           }
@@ -537,11 +562,17 @@
         function bks() {
           if (visibleBo === false) {
             books.forEach(function(feature) { // load pin location data from above
+              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
+                content: feature.infoContent
+              });
               // insert pins onto map
               marker = new google.maps.Marker({
                 position: feature.position,
                 icon: icons[feature.type].icon,
                 map: map
+              });
+              marker.addListener('click', function() {
+                infoWindow.open(map, this);
               });
               markersBooks.push(marker);
               visibleBo = true;
@@ -564,11 +595,17 @@
         function parkng() {
           if (visibleP === false) {
             parking.forEach(function(feature) { // load pin location data from above
+              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
+                content: feature.infoContent
+              });
               // insert pins onto map
               marker = new google.maps.Marker({
                 position: feature.position,
                 icon: icons[feature.type].icon,
                 map: map
+              });
+              marker.addListener('click', function() {
+                infoWindow.open(map, this);
               });
               markersParking.push(marker);
               visibleP = true;
@@ -591,11 +628,17 @@
         function pkiosks() {
           if (visibleK === false) {
             kiosk.forEach(function(feature) { // load pin location data from above
+              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
+                content: feature.infoContent
+              });
               // insert pins onto map
               marker = new google.maps.Marker({
                 position: feature.position,
                 icon: icons[feature.type].icon,
                 map: map
+              });
+              marker.addListener('click', function() {
+                infoWindow.open(map, this);
               });
               markersKiosks.push(marker);
               visibleK = true;
@@ -618,14 +661,20 @@
         function bus() {
           if (visibleBu === false) {
             buses.forEach(function(feature) { // load pin location data from above
+              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
+                content: feature.infoContent
+              });
               // insert pins onto map
               marker = new google.maps.Marker({
                 position: feature.position,
                 icon: icons[feature.type].icon,
                 map: map
               });
+              marker.addListener('click', function() {
+                infoWindow.open(map, this);
+              });
               markersBuses.push(marker);
-              visibleBu = true;
+              visibleBu = true;                           
             });
             $("#Buses").attr("style", "opacity:1"); // darken legend button
           }
@@ -634,8 +683,8 @@
             markersBuses = [];
             visibleBu = false;
             $("#Buses").attr("style", "opacity:0.5"); // lighten legend button
-          }
-        }        
+          }          
+        }
         function setMapOnAllBu(map) {
           for (var i = 0; i < markersBuses.length; i++) {
           markersBuses[i].setMap(map);
@@ -645,11 +694,17 @@
         function shttle() {
           if (visibleSh === false) {
             shuttles.forEach(function(feature) { // load pin location data from above
+              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
+                content: feature.infoContent
+              });
               // insert pins onto map
               marker = new google.maps.Marker({
                 position: feature.position,
                 icon: icons[feature.type].icon,
                 map: map
+              });
+              marker.addListener('click', function() {
+                infoWindow.open(map, this);
               });
               markersShuttles.push(marker);
               visibleSh = true;
@@ -672,11 +727,20 @@
         function meals() {
           if (visibleF === false) {
             food.forEach(function(feature) { // load pin location data from above
+              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
+                content: feature.infoContent
+              });
+              var infoWindow = new google.maps.InfoWindow({
+                content: feature.infoContent
+              });
               // insert pins onto map
               marker = new google.maps.Marker({
                 position: feature.position,
                 icon: icons[feature.type].icon,
                 map: map
+              });
+              marker.addListener('click', function() {
+                infoWindow.open(map, this);
               });
               markersFood.push(marker);
               visibleF = true;
@@ -699,11 +763,17 @@
         function thtr() {
           if (visibleT === false) {
             theatres.forEach(function(feature) { // load pin location data from above
+              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
+                content: feature.infoContent
+              });
               // insert pins onto map
               marker = new google.maps.Marker({
                 position: feature.position,
                 icon: icons[feature.type].icon,
                 map: map
+              });
+              marker.addListener('click', function() {
+                infoWindow.open(map, this);
               });
               markersTheatres.push(marker);
               visibleT = true;
@@ -726,11 +796,17 @@
         function sprt() {
           if (visibleSp === false) {
             sports.forEach(function(feature) { // load pin location data from above
+              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
+                content: feature.infoContent
+              });
               // insert pins onto map
               marker = new google.maps.Marker({
                 position: feature.position,
                 icon: icons[feature.type].icon,
                 map: map
+              });
+              marker.addListener('click', function() {
+                infoWindow.open(map, this);
               });
               markersSports.push(marker);
               visibleSp = true;
