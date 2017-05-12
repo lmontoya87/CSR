@@ -1,0 +1,309 @@
+html, body{
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-width: 405px;
+}
+
+.wrapper {
+  margin: 0px auto -60px; /*; sticky footer*/
+  min-height: 100%; /*sticky footer*/
+  overflow: hidden; /*sticky footer*/
+}
+
+/******BANNER******/
+.banner { 
+  background-color: rgb(14,34,64);
+  width: auto;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../images/banner.png");
+}
+
+h1 {
+  margin: 0px;
+  text-shadow: 2px 2px #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bannerTitle, h3 { 
+  margin-left: 20px; 
+  color: white;
+}
+
+.navMenu {
+  float: right;
+  margin: 0 12px;
+}
+
+.navLink {
+  margin: 10px;
+  text-shadow: 2px 2px #000;
+  font-family: 'Open Sans', sans-serif;
+  color: rgb(254,197,36);
+}
+
+/******MAIN CONTAINER******/
+.contentContainer { 
+  background-color: white;
+  width: 1400px;
+  padding: 15px;
+  margin: -60px auto 60px; /*sticky footer*/
+}
+
+.contentRow1 {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 15px;
+}
+
+.contentRow2 {
+  width: 100%;
+  height: 300px;
+}
+
+/******ROW 1 SCHEDULER AND MAP******/
+#scheduler, #campusLife {
+  display: inline-block;
+  height: 100%;
+  color: white;
+  text-shadow: 2px 2px #000;
+  font-weight: bolder;
+}
+
+#scheduler {
+  background-color: rgb(167,226,236);
+  width: 823px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../images/calendar2.png");
+}
+
+#campusLife {
+  float: right;
+  background-color: rgb(77,104,109);  
+  margin-left: 15px;
+  width: 560px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../images/eureka.png");
+}
+
+/******ROW 2 WEATHER, EVENTS AND SOCIAL MEDIA******/
+#weather, #events, #socialBlock {
+  display: inline-block;
+  height: 100%;
+  color: white;
+  text-shadow: 2px 2px #000;
+  font-weight: bolder;
+}
+
+#weather { 
+  background-color: rgb(68,92,96);
+  width: 454px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../images/weather.png");
+}
+
+#events { 
+  background-color: rgb(122,165,172);
+  width: 455px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("../images/barclay2.png");
+}
+
+#socialBlock {
+  background-color: rgb(50,68,70);
+  float: right;
+  width: 454px;
+  background-size: 460px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../images/social-icons.png");
+}
+
+/******SOCIAL MEDIA HOTSPOTS******/
+.hotspot-container {
+  position: relative;
+  background-size: 100%;
+  background: url("../images/social-icons.png") no-repeat;
+}
+
+.hotspot-container .pinterest-hotspot {
+  width: 50%; height: 50%;
+  position: absolute;
+  top: 0px; 
+  left: 0px;
+}
+
+.hotspot-container .twitter-hotspot {
+  width: 50%; height: 50%;
+  position: absolute;
+  top: 0px; 
+  left: 50%;
+}
+
+.hotspot-container .facebook-hotspot {
+  width: 50%; height: 50%;
+  position: absolute;
+  top: 150px; 
+  left: 0px;
+}
+
+.hotspot-container .dribble-hotspot {
+  width: 50%; height: 50%;
+  position: absolute;
+  top: 150px; 
+  left: 50%;
+}
+
+
+/******FOOTER******/
+.footerContainer { 
+  background-color: rgb(14,34,64);
+  width: auto;
+  height: 70px;
+  padding-top: 20px;
+}
+
+.footerText {
+  color: white;
+  margin-left: 20px;
+}
+
+.footerText a {
+  color: rgb(254,197,36);
+  text-decoration: none;
+}
+
+/******SCHEDULER PAGE******/
+form {
+  border: 2px solid;
+  border-color: rgb(14,34,64);
+  border-radius: 15px;
+}
+.formGroup, .submitBtn { 
+  width: auto;
+  margin:15px;
+}
+input {
+  width: 95%;
+  line-height: 2em;
+}
+
+#notes-input {
+  line-height: 6em;
+}
+
+.submitBtn {
+  background-color: rgb(254,197,36);
+}
+
+
+/******MEDIA QUERIES******/
+@media screen and (max-width: 1450px) {
+
+    .contentContainer { 
+      width: 1000px;
+    }
+    #scheduler {
+      width: 592px;
+    }
+    #campusLife {
+      width: 392px;
+    }
+    #weather {
+      width: 320px;
+    }
+    #events {
+      width: 321px;
+    }
+    #socialBlock {
+      width: 320px;
+      background-size: 340px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+
+    .contentContainer { 
+      width: 700px;
+    }
+    #scheduler {
+      width: 443px;
+    }
+    #campusLife {
+      width: 240px;
+    }
+    #weather {
+      width: 222px;
+    }
+    #events {
+      width: 221px;
+      background-size: 300px;
+      background-position: center;
+    }
+    #socialBlock {
+      width: 221px;
+      background-size: 300px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    .contentContainer {
+      width: 100%;
+      margin: -60 0 0;
+      padding: 15px 0px;
+    }
+    .contentRow1 {
+      height: 215px;
+      margin: 0px;
+    }
+    .contentRow2 {
+      height: 345px;
+      margin-top: 15px;
+    }
+    #scheduler, #campusLife, #weather, #events, #socialBlock {
+      width: 100%;
+      height: 100px;
+      background-size: cover;
+      margin: 0 0 15px;
+    }
+    #campusLife {
+      float: none;
+    }
+    #socialBlock {
+      background-image: url("../images/social-icons-long.png");
+    }
+    .hotspot-container .pinterest-hotspot {
+      width: 25%; height: 100%;
+    }
+
+    .hotspot-container .twitter-hotspot {
+      width: 25%; height: 100%;
+      left: 25%;
+    }
+
+    .hotspot-container .facebook-hotspot {
+      width: 25%; height: 100%;
+      left: 50%;
+      top: 0;
+    }
+
+    .hotspot-container .dribble-hotspot {
+      width: 25%; height: 100%;
+      left: 75%;
+      top: 0;
+    }
+}
