@@ -20,12 +20,7 @@
   <script type="text/javascript">
 
 var EVENTS = [
-// {
-  
-//   start : '2017-05-10T11:30:00',
-//   title : 'practice test',
-//   end : '2017-05-10T012:30:00'
-// }
+
 ];
 
 // var EVENTS = [
@@ -34,32 +29,15 @@ var EVENTS = [
 //   start : '2017-05-10T11:30:00',
 //   end : '2017-05-10T012:30:00'
 
-// },
-
-// {
-//   title : 'practice test NUMBER2',
-//   start : '2017-05-15T11:30:00',
-//   end : '2017-05-17T012:30:00'
-// },
-
-// {
-//   title : 'practice EVENT NUMBER3',
-//   start : '2017-05-15T15:30:00',
-//   end : '2017-05-17T016:30:00'
-// },
-
-// {
-//   title : 'practice event NUMBER3',
-//   start : '2017-05-20T05:30:00',
-//   end : '2017-05-20T012:30:00'
 // }
 // ];
 
 var event ="";
 var startDate = "";
 var endDate = "";
-
-
+var unique_Key;
+var name = "";
+var grabkey = "false";
 
   
 
@@ -81,10 +59,14 @@ var endDate = "";
   var database = firebase.database();
 
   function add_To_database(){
-
+    EVENTS = [];
     event = $("#event-input").val().trim();
     startDate = $("#start-date-input").val().trim();
     endDate = $("#end-date-input").val().trim();
+
+    $("#event-input").val("");
+    $("#start-date-input").val("");
+    $("#end-date-input").val("");
 
   EVENTS.push({
     title : event,
@@ -93,48 +75,66 @@ var endDate = "";
   });
 
 
-
+  console.log(EVENTS);
   database.ref().push({
    Events : EVENTS
   });
+
+  database.ref(unique_Key).on("value", function(snapshot) {
+      console.log("unique_Key: " + unique_Key);
+      var sv = snapshot.val();
+      var svArr = Object(sv);
+      console.log(svArr); 
+      console.log(svArr.Events);
+      EVENTS =  svArr.Events;
+      console.log("NEW EVENTS " + EVENTS);
+      // $('#calendar').fullCalendar( 'addEventSource', EVENTS);  
+
+    // Handle the errors
+      }, function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+      });
+
+
 }
 
-// function create_database(){
-// database.ref().set({
+function push_to_database(){
+  console.log(unique_Key); 
+  event = $("#event-input").val().trim();
+  startDate = $("#start-date-input").val().trim();
+  endDate = $("#end-date-input").val().trim();
 
-//   });
-// }
+  $("#event-input").val("");
+  $("#start-date-input").val("");
+  $("#end-date-input").val("");
 
-database.ref("/csr-schedule").on("value", function(snapshot) {
-      // storing the snapshot.val() in a variable for convenience
+  EVENTS.push({
+    title : event,
+    start : startDate,
+    end : endDate
+  });
+console.log(EVENTS);
+
+database.ref(unique_Key+"/").set({
+    Events : EVENTS
+  });
+database.ref(unique_Key).on("value", function(snapshot) {
+      console.log("unique_Key: " + unique_Key);
       var sv = snapshot.val();
-      
-      // Getting an array of each key In the snapshot object
-      var svArr = Object.keys(sv);
-      // Finding the last user's key
-      
-      var lastIndex = svArr.length - 1;
-      var lastKey = svArr[lastIndex];
-      // Using the last user's key to access the last added user object
-      var lastObj = sv[lastKey]
-      // Console.loging the last user's data
-      console.log(svArr);
-      console.log("YOUR UNIQUE id is : " + lastIndex);
-      console.log("YOUR UNIQUE schedule IS : "  + lastKey);
-      console.log(lastObj);
-      console.log(lastObj.Events);
-      console.log("--------------");
-      console.log(lastObj.Events[0]);
+      var svArr = Object(sv);
+      console.log(svArr); 
+      console.log(svArr.Events);
+      EVENTS =  svArr.Events;
+      console.log("NEW EVENTS " + EVENTS);
+      $('#calendar').fullCalendar('removeEvents');
+      $('#calendar').fullCalendar( 'addEventSource', EVENTS);  
 
-      EVENTS =  lastObj.Events;
-      console.log("NEW EVENTS" + EVENTS);
-      $('#calendar').fullCalendar( 'addEventSource', EVENTS );
+    // Handle the errors
+      }, function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+      });
+}
 
-
-      // Handle the errors
-    }, function(errorObject) {
-      console.log("Errors handled: " + errorObject.code);
-    });
 
   $('#calendar').fullCalendar({
           // enable theme
@@ -169,53 +169,201 @@ database.ref("/csr-schedule").on("value", function(snapshot) {
 //       end  : '2017-05-09T012:30:00'
 //       // allDay : false // will make the time show
 //     }
-   
+    
 // ]
+  // timeFormat: 'H(:mm)' // uppercase H for 24-hour clock
   })
   function Page(){  
   // $('#calendar').hide();
+  // alert("hi");
   $('#ENTER_VALUES').hide();
   $('#CLEAR_VALUES').hide();
   $('#SUBMIT').hide();
-  console.log(EVENTS);
-  // $('#calendar').fullCalendar( 'addEventSource', EVENTS );
+  $("#Add_More_Events").hide();
+  
 }
 
 
 
-   // console.log(fullCalendar);
-  $("#ENTER_VALUES").click(function(){
-    $('#calendar').fullCalendar( 'addEventSource', EVENTS );
+  $("#CLEAR_VALUES").click(function(event){
+    event.preventDefault();
+     $('#calendar').fullCalendar('removeEvents');
   });
 
 
-  $("#CLEAR_VALUES").click(function(){
-     $('#calendar').fullCalendar( 'removeEvents');
-  });
-
-
-  $("#NEW_USER").click(function(){
+  $("#NEW_USER").click(function(event){
+  event.preventDefault();
      $('#SUBMIT').show();
-     // create_database();
+     $("#returningUser").hide();
+     $("#RETURNING_USER").hide();
+     $("#NEW_USER").hide();
+     grabkey = "true";
+     
   });
+
+$("#RETURNING_USER").click(function(event){
+  event.preventDefault();
+    unique_Key = $("#key-input").val().trim();
+    $("#key-input").val("");
+    $('#SUBMIT').show();
+    $("#returningUser").hide();
+    $("#RETURNING_USER").hide();
+    $("#NEW_USER").hide();
+    console.log("Unique Key: " + unique_Key);
+    console.log(grabkey);
+    database.ref(unique_Key).on("value", function(snapshot) {
+      console.log("unique_Key: " + unique_Key);
+      var sv = snapshot.val();
+      var svArr = Object(sv);
+      console.log(svArr); 
+      console.log(svArr.Events);
+      EVENTS =  svArr.Events;
+      console.log("NEW EVENTS " + EVENTS);
+      $('#calendar').fullCalendar('removeEvents');
+      $('#calendar').fullCalendar( 'addEventSource', EVENTS);  
+
+    // Handle the errors
+      }, function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+      });
+ 
+});
+
 
 // add_To_database();
  
- $("#add-event").click(function(){
-    add_To_database();
-    console.log("NEW EVENTS" + EVENTS);
-    $('#calendar').fullCalendar( 'addEventSource', EVENTS );
-    // $('#calendar').show();
- 
+ $("#add-event").click(function(event){
+  event.preventDefault();
+  $("#returningUser").hide();
+  $("#RETURNING_USER").hide();
+  $("#NEW_USER").hide();
+  $('#SUBMIT').hide();
+  $("#Add_More_Events").show();
+  $('#calendar').fullCalendar('removeEvents');
+  console.log(grabkey);
+  database.ref(unique_Key).on("value", function(snapshot) {
+      console.log("unique_Key: " + unique_Key);
+      var sv = snapshot.val();
+      var svArr = Object(sv);
+      console.log(svArr); 
+      console.log(svArr.Events);
+      EVENTS =  svArr.Events;
+      console.log("NEW EVENTS " + EVENTS);
+    // $('#calendar').fullCalendar( 'addEventSource', EVENTS);  
 
+// Handle the errors
+  }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
   });
 
 
+  if(grabkey == "true"){
+    add_To_database();
+  }
+  else{
+    push_to_database();
+  }
+
+  });
+
+$("#Add_More_Events").click(function(event){
+    event.preventDefault();
+    $("#NEW_USER").hide();
+    $('#SUBMIT').show();
+    $("#Add_More_Events").hide();
+    // $('#calendar').fullCalendar('removeEvents');
+    database.ref(unique_Key).on("value", function(snapshot) {
+      console.log("unique_Key: " + unique_Key);
+      var sv = snapshot.val();
+      var svArr = Object(sv);
+      console.log(svArr); 
+      console.log(svArr.Events);
+      EVENTS =  svArr.Events;
+      console.log("NEW EVENTS " + EVENTS);
+    // $('#calendar').fullCalendar( 'addEventSource', EVENTS);  
+
+// Handle the errors
+  }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+  });
+});
+
   Page();
-  console.log(EVENTS);
 
- 
 
+
+
+  // console.log(EVENTS);
+//"/csr-schedule"
+  database.ref().on("value", function(snapshot) {
+      
+      // storing   the snapshot.val() in a variable for convenience
+      var sv = snapshot.val();
+      // console.log(sv);
+
+      
+      // Getting an array of each key In the snapshot object
+      var svArr = Object.keys(sv);
+      // Finding the last user's key
+      console.log(svArr); 
+      var lastIndex = svArr.length - 1;
+      var lastKey = svArr[lastIndex];
+      // Using the last user's key to access the last added user object
+      var lastObj = sv[lastKey]
+      // Console.loging the last user's data
+      console.log(svArr);
+      console.log("YOUR UNIQUE id is : " + lastIndex);
+      console.log("YOUR UNIQUE schedule IS : "  + lastKey);
+      if(grabkey == "true"){
+      unique_Key = lastKey;
+      alert("your unique_Key is: " + unique_Key);
+      
+      console.log(lastObj);
+      console.log(lastObj.Events);
+      console.log("--------------");
+      console.log(lastObj.Events[0]);
+
+      EVENTS =  lastObj.Events;
+      console.log("NEW EVENTS" + EVENTS);
+      $('#calendar').fullCalendar( 'addEventSource', EVENTS);
+      grabkey = "false";
+      }
+
+
+      // Handle the errors
+    }, function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);
+    });
+
+  // database.ref('-KjvBIIxOlmqVZVqpM8j').on("value", function(snapshot) {
+  //   alert("YAY IM In");
+  //   var sv = snapshot.val();
+  //   var svArr = Object(sv);
+  //   console.log(svArr); 
+  //   console.log(svArr.Events);
+  //   EVENTS =  svArr.Events;
+  //   console.log("NEW EVENTS " + EVENTS);
+  //   $('#calendar').fullCalendar( 'addEventSource', EVENTS);
+      
+  // // Handle the errors
+  //   }, function(errorObject) {
+  //     console.log("Errors handled: " + errorObject.code);
+  //   });
+
+  database.ref(unique_Key).on("value", function(snapshot) {
+  console.log("unique_Key: " + unique_Key);
+  var sv = snapshot.val();
+  var svArr = Object(sv);
+  console.log(svArr); 
+  console.log(svArr.Events);
+  EVENTS =  svArr.Events;
+  console.log("NEW EVENTS " + EVENTS);
+  // $('#calendar').fullCalendar( 'addEventSource', EVENTS);  
+
+// Handle the errors
+  }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+  });
 
 
 });
@@ -229,11 +377,14 @@ database.ref("/csr-schedule").on("value", function(snapshot) {
 <div class="container">
   <div id="pannel">
     <button id="NEW_USER"> NEW USER </button>
-    <form role="form">
-      <div class="form-group">
-        <label for="key-input">User Key:</label>
-        <input class="form-control" id="key-input" type="text">
-      </div>
+    <button id="Add_More_Events"> Add More Events</button>
+    <div id="returningUser">
+      <form role="form">
+        <div class="form-group">
+          <label for="key-input">User Key:</label>
+          <input class="form-control" id="key-input" type="text">
+        </div>
+    </div>
     <button id="RETURNING_USER">  RETURNING  USER </button>
     <button id="ENTER_VALUES"> ENTER VALUES </button>
     <button id="CLEAR_VALUES">CLEAR VALUES</button>
@@ -243,22 +394,26 @@ database.ref("/csr-schedule").on("value", function(snapshot) {
   <div id="SUBMIT">
     <form role="form">
       <div class="form-group">
-        <label for="event-input">Event:</label>
+        <label for="event-input">Event: ex:(Running) </label>
         <input class="form-control" id="event-input" type="text">
       </div>
       <div class="form-group">
-        <label for="start-date-input">Start Date: </label>
+        <label for="start-date-input">Start Date: ex:(YYYY-MM-DD-THH:MM:SS)</label>
         <input class="form-control" id="start-date-input" type="text">
       </div>
       <div class="form-group">
-        <label for="end-date-input">End Date: </label>
+        <label for="end-date-input">End Date: ex:(YYYY-MM-DD-THH:MM:SS)</label>
         <input class="form-control" id="end-date-input" type="text">
       </div>
 
       <button class="btn btn-default" id="add-event" type="submit">Add Event</button>
     </form>
+    <h1 id="unique_Key"></h1>
   </div>
- </div> 
+ </div>
+
+<br>
+<br> 
   <div id='calendar'></div>
 
 </body>
