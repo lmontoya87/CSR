@@ -77,6 +77,7 @@ a {
 }
 
 #scheduler {
+  background-color: rgb(167,226,236);
   width: 823px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -250,6 +251,7 @@ a {
     }
     .contentRow2 {
       height: 345px;
+      margin-top: 15px;
     }
     #scheduler, #campusLife, #weather, #events, #socialBlock {
       width: 100%;
