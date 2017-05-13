@@ -301,61 +301,130 @@
         // Public Bus Stops
         var buses = [
           { position: new google.maps.LatLng(33.648860, -117.829731),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 79 / 167</h2>'+
+              '<p class="mapPopUp">Bus Route 79: Tustin - Newport Beach<br>Bus Route 167: Orange - Irvine<br>Bus Route 473: Tustin Metrolink - UCI</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route079.pdf" target="_blank" class="mapPopUp">79 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route167.pdf" target="_blank" class="mapPopUp">167 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.649300, -117.830161),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 473</h2>'+
+              '<p class="mapPopUp">Bus Route 473: Tustin Metrolink - UCI</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route473.pdf" target="_blank" class="mapPopUp">473 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.648896, -117.830654),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 79 / 167</h2>'+
+              '<p class="mapPopUp">Bus Route 79: Tustin - Newport Beach<br>Bus Route 167: Orange - Irvine<br>Bus Route 473: Tustin Metrolink - UCI</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route079.pdf" target="_blank" class="mapPopUp">79 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route167.pdf" target="_blank" class="mapPopUp">167 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.648331, -117.831857),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 79 / 167 / 473</h2>'+
+              '<p class="mapPopUp">Bus Route 79: Tustin - Newport Beach<br>Bus Route 167: Orange - Irvine<br>Bus Route 473: Tustin Metrolink - UCI</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route079.pdf" target="_blank" class="mapPopUp">79 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route167.pdf" target="_blank" class="mapPopUp">167 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route473.pdf" target="_blank" class="mapPopUp">473 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.648433, -117.832822),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 79 / 167 / 473</h2>'+
+              '<p class="mapPopUp">Bus Route 79: Tustin - Newport Beach<br>Bus Route 167: Orange - Irvine<br>Bus Route 473: Tustin Metrolink - UCI</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route079.pdf" target="_blank" class="mapPopUp">79 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route167.pdf" target="_blank" class="mapPopUp">167 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route473.pdf" target="_blank" class="mapPopUp">473 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.647720, -117.834781),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 79 / 167 / 473</h2>'+
+              '<p class="mapPopUp">Bus Route 79: Tustin - Newport Beach<br>Bus Route 167: Orange - Irvine<br>Bus Route 473: Tustin Metrolink - UCI</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route079.pdf" target="_blank" class="mapPopUp">79 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route167.pdf" target="_blank" class="mapPopUp">167 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route473.pdf" target="_blank" class="mapPopUp">473 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.648017, -117.834894),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 79 / 167 / 473</h2>'+
+              '<p class="mapPopUp">Bus Route 79: Tustin - Newport Beach<br>Bus Route 167: Orange - Irvine<br>Bus Route 473: Tustin Metrolink - UCI</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route079.pdf" target="_blank" class="mapPopUp">79 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route167.pdf" target="_blank" class="mapPopUp">167 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route473.pdf" target="_blank" class="mapPopUp">473 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.649046, -117.839751),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 59 / 79 / 167 / 178 / 473</h2>'+
+              '<p class="mapPopUp">Bus Route 59: Anaheim - Irvine<br>Bus Route 79: Tustin - Newport Beach<br>Bus Route 167: Orange - Irvine<br>Bus Route 178: Huntington Beach - Irvine<br>Bus Route 473: Tustin Metrolink - UCI</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route059.pdf" target="_blank" class="mapPopUp">59 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route079.pdf" target="_blank" class="mapPopUp">79 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route167.pdf" target="_blank" class="mapPopUp">167 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route178.pdf" target="_blank" class="mapPopUp">178 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route473.pdf" target="_blank" class="mapPopUp">473 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.649446, -117.839862),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 79 / 167 / 473</h2>'+
+              '<p class="mapPopUp">Bus Route 79: Tustin - Newport Beach<br>Bus Route 167: Orange - Irvine<br>Bus Route 473: Tustin Metrolink - UCI</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route079.pdf" target="_blank" class="mapPopUp">79 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route167.pdf" target="_blank" class="mapPopUp">167 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route473.pdf" target="_blank" class="mapPopUp">473 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.654485, -117.844439),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 59 / 167 / 178</h2>'+
+              '<p class="mapPopUp">Bus Route 59: Anaheim - Irvine<br>Bus Route 167: Orange - Irvine<br>Bus Route 178: Huntington Beach - Irvine</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route059.pdf" target="_blank" class="mapPopUp">59 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route167.pdf" target="_blank" class="mapPopUp">167 PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.octa.net/ebusbook/RoutePDF/route178.pdf" target="_blank" class="mapPopUp">178 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.648379, -117.852914),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 213</h2>'+
+              '<p class="mapPopUp">Bus Route 213: Brea - Irvine via 55 freeway</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route213.pdf" target="_blank" class="mapPopUp">213 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.648177, -117.853275),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 213</h2>'+
+              '<p class="mapPopUp">Bus Route 213: Brea - Irvine via 55 freeway</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route213.pdf" target="_blank" class="mapPopUp">213 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.646191, -117.853939),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 213</h2>'+
+              '<p class="mapPopUp">Bus Route 213: Brea - Irvine via 55 freeway</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route213.pdf" target="_blank" class="mapPopUp">213 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.645729, -117.854600),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 213</h2>'+
+              '<p class="mapPopUp">Bus Route 213: Brea - Irvine via 55 freeway</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route213.pdf" target="_blank" class="mapPopUp">213 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.643618, -117.854784),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 213</h2>'+
+              '<p class="mapPopUp">Bus Route 213: Brea - Irvine via 55 freeway</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route213.pdf" target="_blank" class="mapPopUp">213 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.642701, -117.854859),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 213</h2>'+
+              '<p class="mapPopUp">Bus Route 213: Brea - Irvine via 55 freeway</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route213.pdf" target="_blank" class="mapPopUp">213 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.640665, -117.853297),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 213</h2>'+
+              '<p class="mapPopUp">Bus Route 213: Brea - Irvine via 55 freeway</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route213.pdf" target="_blank" class="mapPopUp">213 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.639908, -117.853480),
-            type: 'bus'
-          }, {
-            position: new google.maps.LatLng(33.648918, -117.844897),
-            type: 'bus'
+            type: 'bus',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">OCTA: 213</h2>'+
+              '<p class="mapPopUp">Bus Route 213: Brea - Irvine via 55 freeway</p>'+
+              '<p class="mapPopUp"><a href="https://www.octa.net/ebusbook/RoutePDF/route213.pdf" target="_blank" class="mapPopUp">213 PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.649066, -117.845156),
             type: 'bus',
@@ -392,48 +461,100 @@
           { position: new google.maps.LatLng(33.647783, -117.834502),
             type: 'shuttle',
             infoContent: '<div class="mapPopUp">'+
-              '<h2 class="mapPopUp">Anteater Express: W Line </h2>'+
-              '<p class="mapPopUp">Campus, Culver, Michelson and Carlson - Stops every 30 minutes</p>'+
+              '<h2 class="mapPopUp">Anteater Express: W Line</h2>'+
+              '<p class="mapPopUp">Campus, Culver, Michelson and Carlson<br>Shuttle every 30 minutes</p>'+
               '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.649287, -117.839589),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: M Line</h2>'+
+              '<p class="mapPopUp">Housing and University Center<br>Shuttles every 10 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.649212, -117.840032),
-            type: 'shuttle'
-          }, {
-            position: new google.maps.LatLng(33.653059, -117.845570),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: M, V & W Lines</h2>'+
+              '<p class="mapPopUp">West Irvine, Housing & Main Campus<br>Shuttles every 8 to 30 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.648353, -117.840420),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: M, V & W Lines</h2>'+
+              '<p class="mapPopUp">West Irvine, Housing & Main Campus<br>Shuttles every 8 to 30 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
+          }, {
+            position: new google.maps.LatLng(33.653059, -117.845570),
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: A, C & N Lines</h2>'+
+              '<p class="mapPopUp">Main Campus<br>Shuttle every 8 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.648898, -117.845123),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: M Line</h2>'+
+              '<p class="mapPopUp">Main Campus<br>Shuttle every 8 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.649087, -117.844950),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: M Line</h2>'+
+              '<p class="mapPopUp">Main Campus<br>Shuttle every 8 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.648090, -117.847021),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: M Line</h2>'+
+              '<p class="mapPopUp">Main Campus<br>Shuttle every 8 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.648079, -117.847201),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: M Line</h2>'+
+              '<p class="mapPopUp">Main Campus<br>Shuttle every 8 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.646487, -117.848486),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: M Line</h2>'+
+              '<p class="mapPopUp">Main Campus<br>Shuttle every 8 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.643649, -117.849144),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: M Line</h2>'+
+              '<p class="mapPopUp">Main Campus<br>Shuttle every 8 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.643089, -117.843465),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: M Line</h2>'+
+              '<p class="mapPopUp">Main Campus<br>Shuttle every 8 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.642532, -117.841811),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: M Line</h2>'+
+              '<p class="mapPopUp">Main Campus<br>Shuttle every 8 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }, {
             position: new google.maps.LatLng(33.642887, -117.839901),
-            type: 'shuttle'
+            type: 'shuttle',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Anteater Express: M Line</h2>'+
+              '<p class="mapPopUp">Main Campus<br>Shuttle every 8 minutes</p>'+
+              '<p class="mapPopUp"><a href="http://www.shuttle.uci.edu/routes/" target="_blank" class="mapPopUp">Schedules</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shuttle.uci.edu/files/route_files/System%20Map%202015-2016.pdf" target="_blank" class="mapPopUp">Route Map PDF</a></p>'
           }
         ];
         
