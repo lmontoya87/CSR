@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>CSR : Personal Scheduler</title>
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.0/fullcalendar.css' />
+  <!-- <link rel='stylesheet' href='./lib/cupertino/jquery-ui.min.css' /> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- JQuery -->
+  <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
+  <!-- Library -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.0/fullcalendar.min.js'></script> 
+  <!-- firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <!-- our styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+	<!-- *****GOOGLE FONTS***** -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+    	input {
+    		width: 80%;
+    	}
+
+    </style>
+
+</head>
+
+<body>
+<!-- ********PAGE CONTAINER******** -->
+	<div class="wrapper">
+
+	<!-- ********HEADER(BANNER)******** -->
+		<div class="banner">
+				<div class="bannerTitle">
+					<h1><strong>CSR|</strong>Condensed Student Resources</h1>
+					<h2>Getting where you want to be.</h2>
+				</div>
+				<nav class="navMenu">
+					<a href="index.html" class="navLink">Home</a>
+					<a href="scheduler.html" class="navLink">Scheduler</a>
+					<a href="campus-map.html" class="navLink">Campus Map</a>
+					<a href="weather-traffic.html" class="navLink">Weather</a>
+					<a href="events.html" class="navLink">Events</a>
+				</nav>
+		</div>
+
+		<!-- ********MAIN CONTAINER******** -->
+		<div class="contentContainer">
+
+		<!-- *****SCHEDULER***** -->
+
+		<div class="container">
+      <div id="pannel">
+        <button id="NEW_USER"> NEW USER </button>
+        <button id="Add_More_Events"> Add More Events</button>
+        <div id="returningUser">
+          <form role="form">
+            <div class="form-group">
+              <label for="key-input">User Key:</label>
+              <input class="form-control" id="key-input" type="text">
+            </div>
+          </form>
+        </div>
+        <button id="RETURNING_USER">  RETURNING  USER </button>
+        <button id="ENTER_VALUES"> ENTER VALUES </button>
+        <button id="CLEAR_VALUES">CLEAR VALUES</button>
+        <br>
+        <br>
+      </div>
+      <div id="SUBMIT">
+        <form role="form">
+          <div class="form-group">
+            <label for="event-input">Event: ex:(Running) </label>
+            <input class="form-control" id="event-input" type="text">
+          </div>
+          <div class="form-group">
+            <label for="start-date-input">Start Date: ex:(YYYY-MM-DD-THH:MM:SS)</label>
+            <input class="form-control" id="start-date-input" type="text">
+          </div>
+          <div class="form-group">
+            <label for="end-date-input">End Date: ex:(YYYY-MM-DD-THH:MM:SS)</label>
+            <input class="form-control" id="end-date-input" type="text">
+          </div>
+
+          <button class="btn btn-default" id="add-event" type="submit">Add Event</button>
+        </form>
+        <h1 id="unique_Key"></h1>
+      </div>
+     </div>
+
+    <br>
+    <br> 
+  <div id='calendar'></div>
+
+		<!-- *****END OF SCHEDULER***** -->
+			
+		</div>
+	</div>
+	<div class="footerContainer">
+		<div class="footerText"><strong>CSR |</strong>Consolidated Student Resource
+		</div>
+		
+		<div class="footerText">
+			<a class="footerLink" href="scheduler.html">Personal Scheduler  |</a>
+			<a class="footerLink" href="campus-map.html">Campus Map  |</a>
+			<a class="footerLink" href="weather-traffic.html">Weather &amp; Traffic  |</a>
+			<a class="footerLink" href="events.html">UCI Events</a>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+
+var EVENTS = [
+
+];
+
+// var EVENTS = [
+// {
+//   title : 'practice test',
+//   start : '2017-05-10T11:30:00',
+//   end : '2017-05-10T012:30:00'
+
+// }
+// ];
+
+var event ="";
+var startDate = "";
+var endDate = "";
+var unique_Key;
+var name = "";
+var grabkey = "false";
+
+  
+
+
+  $(document).ready(function() {
+  // page is ready
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCYQEuPUaoVLVcl3FHX8i4oN5-M52adWRQ",
+    authDomain: "csr-schedule.firebaseapp.com",
+    databaseURL: "https://csr-schedule.firebaseio.com",
+    projectId: "csr-schedule",
+    storageBucket: "csr-schedule.appspot.com",
+    messagingSenderId: "128437015026"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+
+  function add_To_database(){
+    EVENTS = [];
+    event = $("#event-input").val().trim();
+    startDate = $("#start-date-input").val().trim();
+    endDate = $("#end-date-input").val().trim();
+
+    $("#event-input").val("");
+    $("#start-date-input").val("");
+    $("#end-date-input").val("");
+
+  EVENTS.push({
+    title : event,
+    start : startDate,
+    end : endDate
+  });
+
+
+  console.log(EVENTS);
+  database.ref().push({
+   Events : EVENTS
+  });
+
+  database.ref(unique_Key).on("value", function(snapshot) {
+      console.log("unique_Key: " + unique_Key);
+      var sv = snapshot.val();
+      var svArr = Object(sv);
+      console.log(svArr); 
+      console.log(svArr.Events);
+      EVENTS =  svArr.Events;
+      console.log("NEW EVENTS " + EVENTS);
+      // $('#calendar').fullCalendar( 'addEventSource', EVENTS);  
+
+    // Handle the errors
+      }, function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+      });
+
+
+}
+
+function push_to_database(){
+  console.log(unique_Key); 
+  event = $("#event-input").val().trim();
+  startDate = $("#start-date-input").val().trim();
+  endDate = $("#end-date-input").val().trim();
+
+  $("#event-input").val("");
+  $("#start-date-input").val("");
+  $("#end-date-input").val("");
+
+  EVENTS.push({
+    title : event,
+    start : startDate,
+    end : endDate
+  });
+console.log(EVENTS);
+
+database.ref(unique_Key+"/").set({
+    Events : EVENTS
+  });
+database.ref(unique_Key).on("value", function(snapshot) {
+      console.log("unique_Key: " + unique_Key);
+      var sv = snapshot.val();
+      var svArr = Object(sv);
+      console.log(svArr); 
+      console.log(svArr.Events);
+      EVENTS =  svArr.Events;
+      console.log("NEW EVENTS " + EVENTS);
+      $('#calendar').fullCalendar('removeEvents');
+      $('#calendar').fullCalendar( 'addEventSource', EVENTS);  
+
+    // Handle the errors
+      }, function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+      });
+}
+
+
+  $('#calendar').fullCalendar({
+          // enable theme
+    // theme: true,
+    // emphasizes business hours
+    // businessHours: true,
+    // event dragging & resizing
+    // editable: true,
+    // header
+    header: {
+      left: 'prev,next, today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+
+//     events: [
+//   // all day event
+//     {
+//       title  : 'Meeting',
+//       start  : '2017-05-12'
+//     },
+//     // long-term event 
+//     {
+//       title  : 'Conference',
+//       start  : '2015-11-13',
+//       end    : '2015-11-15'
+//     },
+//     // short term event 
+//     {
+//       title  : 'Math',
+//       start  : '2017-05-09T11:30:00',
+//       end  : '2017-05-09T012:30:00'
+//       // allDay : false // will make the time show
+//     }
+    
+// ]
+  // timeFormat: 'H(:mm)' // uppercase H for 24-hour clock
+  })
+  function Page(){  
+  // $('#calendar').hide();
+  // alert("hi");
+  $('#ENTER_VALUES').hide();
+  $('#CLEAR_VALUES').hide();
+  $('#SUBMIT').hide();
+  $("#Add_More_Events").hide();
+  
+}
+
+
+
+  $("#CLEAR_VALUES").click(function(event){
+    event.preventDefault();
+     $('#calendar').fullCalendar('removeEvents');
+  });
+
+
+  $("#NEW_USER").click(function(event){
+  event.preventDefault();
+     $('#SUBMIT').show();
+     $("#returningUser").hide();
+     $("#RETURNING_USER").hide();
+     $("#NEW_USER").hide();
+     grabkey = "true";
+     
+  });
+
+$("#RETURNING_USER").click(function(event){
+  event.preventDefault();
+    unique_Key = $("#key-input").val().trim();
+    $("#key-input").val("");
+    $('#SUBMIT').show();
+    $("#returningUser").hide();
+    $("#RETURNING_USER").hide();
+    $("#NEW_USER").hide();
+    console.log("Unique Key: " + unique_Key);
+    console.log(grabkey);
+    database.ref(unique_Key).on("value", function(snapshot) {
+      console.log("unique_Key: " + unique_Key);
+      var sv = snapshot.val();
+      var svArr = Object(sv);
+      console.log(svArr); 
+      console.log(svArr.Events);
+      EVENTS =  svArr.Events;
+      console.log("NEW EVENTS " + EVENTS);
+      $('#calendar').fullCalendar('removeEvents');
+      $('#calendar').fullCalendar( 'addEventSource', EVENTS);  
+
+    // Handle the errors
+      }, function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+      });
+ 
+});
+
+
+// add_To_database();
+ 
+ $("#add-event").click(function(event){
+  event.preventDefault();
+  $("#returningUser").hide();
+  $("#RETURNING_USER").hide();
+  $("#NEW_USER").hide();
+  $('#SUBMIT').hide();
+  $("#Add_More_Events").show();
+  $('#calendar').fullCalendar('removeEvents');
+  console.log(grabkey);
+  database.ref(unique_Key).on("value", function(snapshot) {
+      console.log("unique_Key: " + unique_Key);
+      var sv = snapshot.val();
+      var svArr = Object(sv);
+      console.log(svArr); 
+      console.log(svArr.Events);
+      EVENTS =  svArr.Events;
+      console.log("NEW EVENTS " + EVENTS);
+    // $('#calendar').fullCalendar( 'addEventSource', EVENTS);  
+
+// Handle the errors
+  }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+  });
+
+
+  if(grabkey == "true"){
+    add_To_database();
+  }
+  else{
+    push_to_database();
+  }
+
+  });
+
+$("#Add_More_Events").click(function(event){
+    event.preventDefault();
+    $("#NEW_USER").hide();
+    $('#SUBMIT').show();
+    $("#Add_More_Events").hide();
+    // $('#calendar').fullCalendar('removeEvents');
+    database.ref(unique_Key).on("value", function(snapshot) {
+      console.log("unique_Key: " + unique_Key);
+      var sv = snapshot.val();
+      var svArr = Object(sv);
+      console.log(svArr); 
+      console.log(svArr.Events);
+      EVENTS =  svArr.Events;
+      console.log("NEW EVENTS " + EVENTS);
+    // $('#calendar').fullCalendar( 'addEventSource', EVENTS);  
+
+// Handle the errors
+  }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+  });
+});
+
+  Page();
+
+
+
+
+  // console.log(EVENTS);
+//"/csr-schedule"
+  database.ref().on("value", function(snapshot) {
+      
+      // storing   the snapshot.val() in a variable for convenience
+      var sv = snapshot.val();
+      // console.log(sv);
+
+      
+      // Getting an array of each key In the snapshot object
+      var svArr = Object.keys(sv);
+      // Finding the last user's key
+      console.log(svArr); 
+      var lastIndex = svArr.length - 1;
+      var lastKey = svArr[lastIndex];
+      // Using the last user's key to access the last added user object
+      var lastObj = sv[lastKey]
+      // Console.loging the last user's data
+      console.log(svArr);
+      console.log("YOUR UNIQUE id is : " + lastIndex);
+      console.log("YOUR UNIQUE schedule IS : "  + lastKey);
+      if(grabkey == "true"){
+      unique_Key = lastKey;
+      alert("your unique_Key is: " + unique_Key);
+      
+      console.log(lastObj);
+      console.log(lastObj.Events);
+      console.log("--------------");
+      console.log(lastObj.Events[0]);
+
+      EVENTS =  lastObj.Events;
+      console.log("NEW EVENTS" + EVENTS);
+      $('#calendar').fullCalendar( 'addEventSource', EVENTS);
+      grabkey = "false";
+      }
+
+
+      // Handle the errors
+    }, function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);
+    });
+
+  // database.ref('-KjvBIIxOlmqVZVqpM8j').on("value", function(snapshot) {
+  //   alert("YAY IM In");
+  //   var sv = snapshot.val();
+  //   var svArr = Object(sv);
+  //   console.log(svArr); 
+  //   console.log(svArr.Events);
+  //   EVENTS =  svArr.Events;
+  //   console.log("NEW EVENTS " + EVENTS);
+  //   $('#calendar').fullCalendar( 'addEventSource', EVENTS);
+      
+  // // Handle the errors
+  //   }, function(errorObject) {
+  //     console.log("Errors handled: " + errorObject.code);
+  //   });
+
+  database.ref(unique_Key).on("value", function(snapshot) {
+  console.log("unique_Key: " + unique_Key);
+  var sv = snapshot.val();
+  var svArr = Object(sv);
+  console.log(svArr); 
+  console.log(svArr.Events);
+  EVENTS =  svArr.Events;
+  console.log("NEW EVENTS " + EVENTS);
+  // $('#calendar').fullCalendar( 'addEventSource', EVENTS);  
+
+// Handle the errors
+  }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+  });
+
+
+});
+
+</script>
+
+</html>
