@@ -25,10 +25,21 @@ html, body{
 h1 {
   margin: 0px;
   text-shadow: 2px 2px #000;
+  font-size: 34px;
+  line-height: 1.5em;
+  font-weight: normal;
 }
 
-a {
+h2 {
+  font-weight: normal;
+  font-size: 26px;
+  margin-top: 10px;
+  line-height: 1.1em;
+}
+
+a, a:hover, a:focus {
   text-decoration: none;
+  color: rgb(254,197,36);
 }
 
 .bannerTitle, h3 { 
@@ -46,6 +57,7 @@ a {
   text-shadow: 2px 2px #000;
   font-family: 'Open Sans', sans-serif;
   color: rgb(254,197,36);
+  font-size: 16px;
 }
 
 /******MAIN CONTAINER******/
@@ -80,8 +92,13 @@ a {
   background-color: rgb(167,226,236);
   width: 823px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 1160px;
   background-image: url("../images/calendar2.png");
+}
+
+#scheduler:hover {
+  background-size: 1200px;
+  transition:1.0s;
 }
 
 #campusLife {
@@ -90,9 +107,14 @@ a {
   margin-left: 15px;
   width: 560px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 570px;
   background-position: center;
   background-image: url("../images/eureka.png");
+}
+
+#campusLife:hover {
+  background-size: 610px;
+  transition:1.0s;
 }
 
 /******ROW 2 WEATHER, EVENTS AND SOCIAL MEDIA******/
@@ -109,7 +131,13 @@ a {
   width: 454px;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 530px;
   background-image: url("../images/weather.png");
+}
+
+#weather:hover {
+  background-size: 570px;
+  transition:1.0s;
 }
 
 #events { 
@@ -118,8 +146,14 @@ a {
   margin-left: 15px;
   margin-right: 15px;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 460px;
+  background-position: center;
   background-image: url("../images/barclay2.png");
+}
+
+#events:hover {
+  background-size: 500px;
+  transition:1.0s;
 }
 
 #socialBlock {
@@ -130,6 +164,11 @@ a {
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("../images/social-icons.png");
+}
+
+#socialBlock:hover {
+  background-size: 500px;
+  transition:1.0s;
 }
 
 /******SOCIAL MEDIA HOTSPOTS******/
@@ -186,28 +225,7 @@ a {
   text-decoration: none;
 }
 
-/******SCHEDULER PAGE******/
-form {
-  border: 2px solid;
-  border-color: rgb(14,34,64);
-  border-radius: 15px;
-}
-.formGroup, .submitBtn { 
-  width: auto;
-  margin:15px;
-}
-input {
-  width: 95%;
-  line-height: 2em;
-}
-
-#notes-input {
-  line-height: 6em;
-}
-
-.submitBtn {
-  background-color: rgb(254,197,36);
-}
+/******ON HOVER******/
 
 
 /******MEDIA QUERIES******/
@@ -232,6 +250,10 @@ input {
       width: 320px;
       background-size: 340px;
     }
+    #socialBlock:hover {
+      background-size: 380px;
+      /*transition:1.0s;*/
+    }
 }
 
 @media screen and (max-width: 1050px) {
@@ -253,9 +275,15 @@ input {
       background-size: 300px;
       background-position: center;
     }
+    #events:hover {
+      background-size: 340px;
+    }
     #socialBlock {
       width: 221px;
       background-size: 300px;
+    }
+    #socialBlock:hover {
+      background-size: 340px;
     }
 }
 
@@ -279,6 +307,9 @@ input {
       height: 100px;
       background-size: cover;
       margin: 0 0 15px;
+    }
+    #scheduler:hover, #campusLife:hover, #weather:hover, #events:hover, #socialBlock:hover {
+      background-size: cover;
     }
     #campusLife {
       float: none;
