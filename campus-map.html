@@ -28,11 +28,11 @@
         background: #fff;
         padding: 10px;
         margin: 10px;
-        border: 3px solid #000;
+        border: 2px solid darkblue;
       }
       #legend h3 {
         margin-top: 0;
-        color: black;
+        color: darkblue;
       }
       #legend img {
         vertical-align: middle;
@@ -50,6 +50,10 @@
       p.mapPopUp {
         font-family: arial, helvetica, sans-serif;
         font-size:8pt;
+      }
+      p.mapPopUp a {
+        color: darkorange;
+        font-weight: bold;
       }
       .footerContainer { /*WIREFRAME OVERRIDE*/
         margin-top: -60px;
@@ -166,135 +170,258 @@
         // Bookstore
         var books = [
           { position: new google.maps.LatLng(33.648849, -117.841629),
-            type: 'books'
+            type: 'books',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">The Hill - Bookstore</h2>'+
+              '<p class="mapPopUp">The Hill is located off Pereira Drive from W. Peltason Drive<br>The Hill<br>210-B Student Center<br>Irvine, CA 92697</p>'+
+              '<p class="mapPopUp"><a href="http://uci.bncollege.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }
         ];
 
         // Parking Lots
         var parking = [          
           { position: new google.maps.LatLng(33.643747, -117.835143),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 17A</h2>'+
+              '<p class="mapPopUp">Access to the Student Health Center (6) and Continuing Education (8)</p>'
           }, {
             position: new google.maps.LatLng(33.647194, -117.834799),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 1C</h2>'+
+              '<p class="mapPopUp">Access to the Public Services (7)</p>'
           }, {
             position: new google.maps.LatLng(33.646396, -117.836066),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot BP</h2>'+
+              '<p class="mapPopUp">Access to the Education (2) and Law (3)</p>'
           }, {
             position: new google.maps.LatLng(33.645521, -117.836457),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 19A</h2>'+
+              '<p class="mapPopUp">Access to the Continuing Education (236,238) and Health (5)</p>'
           }, {
             position: new google.maps.LatLng(33.646703, -117.837210),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 3A</h2>'+
+              '<p class="mapPopUp">Access to the Continuing Education (232-234) and Summer Sessions (230,231)</p>'
+          }, {
+            position: new google.maps.LatLng(33.647485, -117.837325),
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Structure SS</h2>'+
+              '<p class="mapPopUp">Access to the Administrative (2) and School of Business (221,222)</p>'
           }, {
             position: new google.maps.LatLng(33.648098, -117.839129),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 1</h2>'+
+              '<p class="mapPopUp">Access to the Social Science (210-215)</p>'
           }, {
             position: new google.maps.LatLng(33.647759, -117.840096),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 2</h2>'+
+              '<p class="mapPopUp">Access to the Library (101,102) and School Science Plaza (200-203), Gateway Study Center (101) and Langson Library (102)</p>'
           }, {
-            position: new google.maps.LatLng(33.647305, -117.841508),
-            type: 'parking'
-          }, {
-            position: new google.maps.LatLng(33.645845, -117.846513),
-            type: 'parking'
+            position: new google.maps.LatLng(33.650026, -117.841863),
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Structure SC</h2>'+
+              '<p class="mapPopUp">Access to the Barclay Theatre (1), Cross-Cultural Center (103), Student Services (105), Aldrich Hall (111) and Student Center (113)</p>'
           }, {
             position: new google.maps.LatLng(33.652151, -117.842644),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 5</h2>'+
+              '<p class="mapPopUp">Access to the Student Center (113), Arts (710-728)</p>'
           }, {
             position: new google.maps.LatLng(33.653258, -117.845959),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 14</h2>'+
+              '<p class="mapPopUp">Access to Mesa Court Housing</p>'
           }, {
             position: new google.maps.LatLng(33.652074, -117.846737),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 14A</h2>'+
+              '<p class="mapPopUp">Access to Anteater Ballpark</p>'
           }, {
             position: new google.maps.LatLng(33.650578, -117.846589),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot MPS</h2>'+
+              '<p class="mapPopUp">Access to the Bren Events Center (901), Athletics (911-917) and Arts (58-59, 710-728)</p>'
           }, {
             position: new google.maps.LatLng(33.648795, -117.846764),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 6A</h2>'+
+              '<p class="mapPopUp">Access to the Bren Events Center (901) and Crawford Pool (905)</p>'
           }, {
             position: new google.maps.LatLng(33.647577, -117.845853),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 7</h2>'+
+              '<p class="mapPopUp">Access to lecture halls (501-503), the Greenhouse (514), Humanities (601-611) and Athletics (625)</p>'
           }, {
             position: new google.maps.LatLng(33.646619, -117.846606),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 8</h2>'+
+              '<p class="mapPopUp">Access to the Bonney Research Laboratory (512), Neurobiology (516), Ayala Science Library (520), KUCI Radio, Arts & Humanities (521-523)</p>'
           }, {
             position: new google.maps.LatLng(33.647205, -117.848557),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 6</h2>'+
+              '<p class="mapPopUp">Access to Crawford Hall (903) and Crawford Clubhouse (919)</p>'
           }, {
             position: new google.maps.LatLng(33.646417, -117.851241),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 80</h2>'+
+              '<p class="mapPopUp">Access to Medical (800-841)</p>'
           }, {
-            position: new google.maps.LatLng(33.643452, -117.850259),
-            type: 'parking'
+            position: new google.maps.LatLng(33.642970, -117.850517),
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 82</h2>'+
+              '<p class="mapPopUp">Access to Medical (800-841)</p>'
           }, {
             position: new google.maps.LatLng(33.646619, -117.846606),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 82</h2>'+
+              '<p class="mapPopUp">Access to Medical (811-845)</p>'
           }, {
             position: new google.maps.LatLng(33.642822, -117.851971),
-            type: 'parking'
-          }, {
-            position: new google.maps.LatLng(33.643441, -117.848157),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 83</h2>'+
+              '<p class="mapPopUp">Access to the Biomedical Research Center (825-845)</p>'
           }, {
             position: new google.maps.LatLng(33.643632, -117.846855),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 16A</h2>'+
+              '<p class="mapPopUp">Access to Campus Village Housing</p>'
           }, {
             position: new google.maps.LatLng(33.644740, -117.846319),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 13</h2>'+
+              '<p class="mapPopUp">Access to lecture halls (501-503), Sciences (517-520) and  Ayala Science Library (520)</p>'
           }, {
             position: new google.maps.LatLng(33.642590, -117.846830),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 16</h2>'+
+              '<p class="mapPopUp">Access to Sciences (400-450)</p>'
           }, {
             position: new google.maps.LatLng(33.642975, -117.844699),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 12</h2>'+
+              '<p class="mapPopUp">Access to Sciences (400-450)</p>'
           }, {
             position: new google.maps.LatLng(33.642610, -117.842462),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Lot 18</h2>'+
+              '<p class="mapPopUp">Access to Science & Engineering (302-325)</p>'
           }, {
             position: new google.maps.LatLng(33.643170, -117.837735),
-            type: 'parking'
-          }, {
-            position: new google.maps.LatLng(33.650084, -117.841879),
-            type: 'parking'
+            type: 'parking',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Structure A</h2>'+
+              '<p class="mapPopUp">Access to Science & Engineering (302-325)</p>'
           }
         ];
 
         // Parking Kiosks
         var kiosk = [
           { position: new google.maps.LatLng(33.646786, -117.835397),
-            type: 'parkKiosk'
+            type: 'parkKiosk',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Fee & Info Kiosk</h2>'+
+              '<p class="mapPopUp">Day use parking passes and university information board</p>'+
+              '<p class="mapPopUp"><a href="https://www.parking.uci.edu/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.646793, -117.834499),
-            type: 'parkKiosk'
+            type: 'parkKiosk',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Fee & Info Kiosk</h2>'+
+              '<p class="mapPopUp">Day use parking passes and university information board</p>'+
+              '<p class="mapPopUp"><a href="https://www.parking.uci.edu/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.647775, -117.838250),
-            type: 'parkKiosk'
+            type: 'parkKiosk',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Fee & Info Kiosk</h2>'+
+              '<p class="mapPopUp">Day use parking passes and university information board</p>'+
+              '<p class="mapPopUp"><a href="https://www.parking.uci.edu/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.648180, -117.840127),
-            type: 'parkKiosk'
+            type: 'parkKiosk',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Fee & Info Kiosk</h2>'+
+              '<p class="mapPopUp">Day use parking passes and university information board</p>'+
+              '<p class="mapPopUp"><a href="https://www.parking.uci.edu/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.649750, -117.842011),
-            type: 'parkKiosk'
+            type: 'parkKiosk',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Fee & Info Kiosk</h2>'+
+              '<p class="mapPopUp">Day use parking passes and university information board</p>'+
+              '<p class="mapPopUp"><a href="https://www.parking.uci.edu/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.651257, -117.846700),
-            type: 'parkKiosk'
+            type: 'parkKiosk',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Fee & Info Kiosk</h2>'+
+              '<p class="mapPopUp">Day use parking passes and university information board</p>'+
+              '<p class="mapPopUp"><a href="https://www.parking.uci.edu/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.644259, -117.846328),
-            type: 'parkKiosk'
+            type: 'parkKiosk',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Fee & Info Kiosk</h2>'+
+              '<p class="mapPopUp">Day use parking passes and university information board</p>'+
+              '<p class="mapPopUp"><a href="https://www.parking.uci.edu/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.642297, -117.851297),
-            type: 'parkKiosk'
+            type: 'parkKiosk',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Fee & Info Kiosk</h2>'+
+              '<p class="mapPopUp">Day use parking passes and university information board</p>'+
+              '<p class="mapPopUp"><a href="https://www.parking.uci.edu/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.643111, -117.846866),
-            type: 'parkKiosk'
+            type: 'parkKiosk',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Fee & Info Kiosk</h2>'+
+              '<p class="mapPopUp">Day use parking passes and university information board</p>'+
+              '<p class="mapPopUp"><a href="https://www.parking.uci.edu/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.642265, -117.843634),
-            type: 'parkKiosk'
+            type: 'parkKiosk',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Fee & Info Kiosk</h2>'+
+              '<p class="mapPopUp">Day use parking passes and university information board</p>'+
+              '<p class="mapPopUp"><a href="https://www.parking.uci.edu/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.642949, -117.836649),
-            type: 'parkKiosk'
+            type: 'parkKiosk',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Parking Fee & Info Kiosk</h2>'+
+              '<p class="mapPopUp">Day use parking passes and university information board</p>'+
+              '<p class="mapPopUp"><a href="https://www.parking.uci.edu/" target="_blank" class="mapPopUp">Website</a></p>'
           }
         ];
 
@@ -561,40 +688,130 @@
         // Food & Restaurants
         var food = [
           { position: new google.maps.LatLng(33.650153, -117.838955),
-            type: 'food'
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">20/20 Caf&#0233;</h2>'+
+              '<p class="mapPopUp">Located inside the Hebert Gavin Eye Institute, the 20/20 Cafe is a We Proudly Serve Starbucks that offers a variety of beverages and pastries.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
-            position: new google.maps.LatLng(33.649589, -117.831385),
-            type: 'food'
+            position: new google.maps.LatLng(33.646917, -117.837947),
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Au Bon Pain / Starbucks</h2>'+
+              '<p class="mapPopUp">Located in the Paul Merage School of Business, Au Bon Pain is a fast-casual bakery and café chain specializing in breakfast, hot and cold sandwiches, wraps, salads, soups and pastries. Whether you are looking to eat better or treat yourself, we\'ve got a seasonal menu of craveable options.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
+          }, {            
+            position: new google.maps.LatLng(33.650153, -117.838955), // University Center
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">University Center</h2>'+
+              '<p class="mapPopUp">University Center is located across the Campus Drive walking bridge from Barclay Theatre. This large off-campus strip mall has a plethora of dining options including In-N-Out, Taco Bell, Jack in the Box, Chick-fil-A, Chipotle, Luna Grill, Eureka!, Tender Greens, Trader Joe\'s, Ray\'s Pizza, Yogurtland and more.</p>'+
+              '<p class="mapPopUp"><a href="http://www.shopirvinecompany.com/centers/irvine/university-center" target="_blank" class="mapPopUp">Website</a></p>'
+          }, {
+            position: new google.maps.LatLng(33.649589, -117.831385), // Campus Plaza
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Campus Plaza</h2>'+
+              '<p class="mapPopUp">Campus Plaza is located across Campus Drive at the east end of UCI. This small off-campus strip mall has a handfull of dining options including The Habit, Del Taco, Hen House Grill, Asian Box, Gina\'s Pizza, Which Wich, Starbucks, Albertson\'s and more.</p>'+
+              '<p class="mapPopUp"><a href="http://www.shopirvinecompany.com/centers/irvine/campus-plaza/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.648316, -117.842356),
-            type: 'food'
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Student Center</h2>'+
+              '<p class="mapPopUp">The UCI Student Center is a focal point on campus and houses a variety of services and venues for social, recreational, cultural and educational pursuits. The Student Center is the primary location to relax, study in the Hillside Lounge, meet up with friend or organizations and grab a bite to eat at one of our many locations! Hours of Operation vary per location. Choices include Anthill Pub &amp; Grille, Bene Pasta, Jamba Juice, Organic Greens to Go, Panda Express, Starbucks, Topio\'s, Wahoo\'s Tacos, Wendy\'s and Zot N Go Market.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.649802, -117.844743),
-            type: 'food'
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Cyber A Caf&#0233;</h2>'+
+              '<p class="mapPopUp">Cyber A Café proudly serves Java City ecoGrounds beverages, an assortment of tasty pastries and a number of hearty and healthy food options, such as sandwiches and wraps. Cyber A Café sits cozily in the heart of the School of the Arts.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.651105, -117.845516),
-            type: 'food'
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">The Anteatery</h2>'+
+              '<p class="mapPopUp">The Anteatery is one of three all-you-can-eat dining halls on campus featuring Mongolian grill, Taza, fresh salad & fruit from the Farmer\'s Market, stone oven pizza along with favorites such as the grill, ice cream bar and fresh baked pastries.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
-            position: new google.maps.LatLng(33.646050, -117.849131),
-            type: 'food'
+            position: new google.maps.LatLng(33.646714, -117.850950),
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Gottschalk P.O.D. Express</h2>'+
+              '<p class="mapPopUp">Located in the Gottschalk Medical Plaza, P.O.D. Express serves freshly brewed coffee and light grab \'n go snacks.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
-            position: new google.maps.LatLng(33.645948, -117.844496),
-            type: 'food'
+            position: new google.maps.LatLng(33.644647, -117.851933),
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Med Ed Caf&#0233;</h2>'+
+              '<p class="mapPopUp">Med Ed Café proudly serves Starbucks coffee. Create your own hand-crafted beverage or try one of our recommendations! Med Ed Café also offers an assortment of pastries and grab \'n go items to satisfy your cravings.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'             
+          }, {
+            position: new google.maps.LatLng(33.645948, -117.844496), // left side Inner Ring
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">BC\'s Cavern</h2>'+
+              '<p class="mapPopUp">Located between Steinhaus Hall and Howard Schneiderman Lecture Hall (HSLH), BC\'s Cavern overlooks the beautiful Aldrich Park and is a perfect place enjoy a delicious hot meal while studying or grab a fresh sandwich from Subway while on your way to class. Choices include Grille Works, Subway, BC\'s Pizza & Pasta and Tortilla Fresca.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
+          }, {
+            position: new google.maps.LatLng(33.644204, -117.845091),
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Starbucks @ Biological Sciences</h2>'+
+              '<p class="mapPopUp">Starbucks Coffee is the world\'s largest specialty coffee chain, offering more than 30 blends and single-origin coffees as well as bakery goods, sandwiches and merchandise.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.643867, -117.843527),
-            type: 'food'
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Caf&#0233; Espresso</h2>'+
+              '<p class="mapPopUp">Café Espresso is a coffee kiosk located outside the Physics and Astronomy Building.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.643424, -117.841132),
-            type: 'food'
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Java City Kiosk</h2>'+
+              '<p class="mapPopUp">Java City is committed to coffee excellence, with some of the freshest coffees on the planet, an ample espresso bar menu, and approachable Javanistas ready to share their expertise.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.645022, -117.834969),
-            type: 'food'
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Bridge Caf&#0233;</h2>'+
+              '<p class="mapPopUp">Located in the Continuing Education Building CE1, just across East Peltason from Middle Earth Housing, Bridge Café is a small coffee kiosk. We Proudly Serve Starbucks that offers a variety of beverages and pastries. This coffee house is a must-visit for any student on the East side of Ring Road near Social Ecology or Engineering.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
+          }, {
+            position: new google.maps.LatLng(33.646949, -117.835782),
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Espress Yourself</h2>'+
+              '<p class="mapPopUp">Espress Yourself, nestled in-between the School of Law and Education, offers espresso-crafted Java city beverages, fresh pastries and grab and go snacks.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'              
+          }, {
+            position: new google.maps.LatLng(33.646961, -117.839547),
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">C3 Express</h2>'+
+              '<p class="mapPopUp">C3 Express convenience store, located next to Social Science Lecture Hall (SSLH), offers fast, affordable convenience and a great variety of items ready to satisfy you. Whether you’re looking for a quick snack to take with you, something more filling, or even something to energize you through a long night of work or studying, C3 Express has what you need.</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'              
           }, {
             position: new google.maps.LatLng(33.644844, -117.836768),
-            type: 'food'
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Pippin Commons</h2>'+
+              '<p class="mapPopUp">Pippin Commons is one of three of our all-you-can-eat dining halls, featuring full service breakfast, lunch and dinner with international entr&#0233es, grill, deli, salad bar and more!</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.645516, -117.839137),
-            type: 'food'
+            type: 'food',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Brandywine Commons</h2>'+
+              '<p class="mapPopUp">Brandywine Commons is one of our three all-you-can-eat dining halls, located off of Ring Road by Middle Earth and Social Science Tower (SST), featuring made-to-order burgers and deli sandwiches, home-style favorites, shakes, seasonal selections and student favorites!</p>'+
+              '<p class="mapPopUp"><a href="http://uci.campusdish.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.645531, -117.840622),
             type: 'food',
@@ -608,409 +825,341 @@
         // Theatres & Entertainment
         var theatres = [
           { position: new google.maps.LatLng(33.649144, -117.840707),
-            type: 'theatre'
+            type: 'theatre',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Barclay Theatre</h2>'+
+              '<p class="mapPopUp">Irvine Barclay Theatre has a wide-range of programming in the fields of contemporary dance, music, and theater arts. Performances take place in the 750-seat "jewel box" theatre which is renowned for its intimate atmosphere and superb acoustics.</p>'+
+              '<p class="mapPopUp"><a href="http://www.thebarclay.org/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.649351, -117.847091),
-            type: 'theatre'
+            type: 'theatre',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Bren Events Center</h2>'+
+              '<p class="mapPopUp">The Bren Events Center provides an exciting and prestigious location in Orange County for a full array of musical, performance, exhibition, sporting and other public events. The flexible design of the Bren Events Center accommodates a wide range of events including concerts, lectures, large meetings, sporting events, banquets and exhibitions.</p>'+
+              '<p class="mapPopUp"><a href="http://www.ucirvinesports.com/bren/index" target="_blank" class="mapPopUp">Website</a></p>'
+          }, {
+            position: new google.maps.LatLng(33.649506, -117.845683),
+            type: 'theatre',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Claire Trevor School of the Arts</h2>'+
+              '<p class="mapPopUp">The Claire Trevor School of the Arts provides excellent facilities to support artistic development and after-class life, including four theatres, a concert hall, three art galleries, the Beall Center for Art + Technology, electronic music studios, cutting edge costume, lighting and scenic design studios, a stage production shop, digital arts labs and a video production studio.</p>'+
+              '<p class="mapPopUp"><a href="http://www.arts.uci.edu/" target="_blank" class="mapPopUp">Website</a></p>'
           }, {
             position: new google.maps.LatLng(33.650002, -117.838290),
-            type: 'theatre'
+            type: 'theatre',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">Edwards University Town Center 6</h2>'+
+              '<p class="mapPopUp">The Edwards 6 movie theaters are located across the Campus Drive walking bridge from the Barclay Theatre. See the top blockbuster hit movies in this spacious 6-screen theater. University Center also offers a plethora of dining options.</p>'+
+              '<p class="mapPopUp"><a href="https://www.regmovies.com/theaters/edwards-university-town-center-6/1436" target="_blank" class="mapPopUp">Movie Website</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.shopirvinecompany.com/centers/irvine/university-center" target="_blank" class="mapPopUp">Center Website</a></p>'
           }
         ];
         
         // Sports & Athletics
         var sports = [
           { position: new google.maps.LatLng(33.650297, -117.848774),
-            type: 'sports'
+            type: 'sports',
+            infoContent: '<div class="mapPopUp">'+
+              '<h2 class="mapPopUp">UCI Athletics</h2>'+
+              '<p class="mapPopUp">Several venues including the Bren Events Center, Anteater Ballpark, Anteater Stadium, Crawford Field and the Crawford Pool host UCI athletic events like baseball, soccer, basketball, swimming, water polo, tennis and more.</p>'+
+              '<p class="mapPopUp"><a href="http://ucirvinesports.com/" target="_blank" class="mapPopUp">Website</a></p>'
           }
         ];
 
 
         // CREATE MARKERS
-        var marker;
-        var visibleA = false;
-        var visibleBo = false;
-        var visibleP = false;
-        var visibleK = false;
-        var visibleBu = false;
-        var visibleSh = false;
-        var visibleF = false;
-        var visibleT = false;
-        var visibleSp = false;
-        var markersAdmissions = [];
-        var markersBooks = [];
-        var markersParking = [];
-        var markersKiosks = [];
-        var markersBuses = [];
-        var markersShuttles = [];
-        var markersFood = [];
-        var markersTheatres = [];
-        var markersSports = [];
+        var marker,
+        visibleA = false, // variables to set whether markers are visible or not
+        visibleBo = false,
+        visibleP = false,
+        visibleK = false,
+        visibleBu = false,
+        visibleSh = false,
+        visibleF = false,
+        visibleT = false,
+        visibleSp = false,
+        markersAdmissions = [], // variables to hold array of category markers to open and close all
+        markersBooks = [],
+        markersParking = [],
+        markersKiosks = [],
+        markersBuses = [],
+        markersShuttles = [],
+        markersFood = [],
+        markersTheatres = [],
+        markersSports = [],
+        i;
 
         function admiss() {
           if (visibleA === false) { // check if markers are visible
-            admissions.forEach(function(feature) { // load pin location data from above
-              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
-                content: feature.infoContent
-              });
-              // insert pins onto map
-              marker = new google.maps.Marker({
-                position: feature.position,
-                icon: icons[feature.type].icon,
-                map: map
-              });
-              marker.addListener('click', function() { // attach listener to open infoWindow on click
-                infoWindow.open(map, this);
-              });
+            admissions.forEach(function(feature) { // loop to load marker data from above
+              markerContent(feature); // evoke function to set marker data
               markersAdmissions.push(marker); // push marker into array
-              visibleA = true;
+              visibleA = true; // set visible to true
             });
             $("#Admissions").attr("style", "opacity:1"); // darken legend button
           }
           else {
-            setMapOnAllA(null); // clear markers from the map
-            markersAdmissions = []; // clear markers from array
-            visibleA = false;
-            $("#Admissions").attr("style", "opacity:0.5"); // lighten legend button           
+            setMapOnAllA(null); // clear category markers from the map          
           }
         }
-        function setMapOnAllA(map) { // loop to clear markers from map
-          for (var i = 0; i < markersAdmissions.length; i++) {
-          markersAdmissions[i].setMap(map);
+        function setMapOnAllA(map) { // loop to clear category markers from map
+          for (i = 0; i < markersAdmissions.length; i++) {
+          markersAdmissions[i].setMap(map); // pass null parameter into marker
           }
+          markersAdmissions = []; // clear markers from array
+          visibleA = false; // set visible to false
+          $("#Admissions").attr("style", "opacity:0.5"); // lighten legend button 
         }
 
         function bks() {
           if (visibleBo === false) {
-            books.forEach(function(feature) { // load pin location data from above
-              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
-                content: feature.infoContent
-              });
-              // insert pins onto map
-              marker = new google.maps.Marker({
-                position: feature.position,
-                icon: icons[feature.type].icon,
-                map: map
-              });
-              marker.addListener('click', function() {
-                infoWindow.open(map, this);
-              });
+            books.forEach(function(feature) {
+              markerContent(feature);
               markersBooks.push(marker);
               visibleBo = true;
             });
-            $("#Books").attr("style", "opacity:1"); // darken legend button
+            $("#Books").attr("style", "opacity:1");
           }
           else {
-            setMapOnAllBo(null);
-            markersBooks = [];
-            visibleBo = false;
-            $("#Books").attr("style", "opacity:0.5"); // lighten legend button           
+            setMapOnAllBo(null);           
           }
         }
         function setMapOnAllBo(map) {
-          for (var i = 0; i < markersBooks.length; i++) {
+          for (i = 0; i < markersBooks.length; i++) {
           markersBooks[i].setMap(map);
           }
+          markersBooks = [];
+          visibleBo = false;
+          $("#Books").attr("style", "opacity:0.5");
         }
 
         function parkng() {
           if (visibleP === false) {
-            parking.forEach(function(feature) { // load pin location data from above
-              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
-                content: feature.infoContent
-              });
-              // insert pins onto map
-              marker = new google.maps.Marker({
-                position: feature.position,
-                icon: icons[feature.type].icon,
-                map: map
-              });
-              marker.addListener('click', function() {
-                infoWindow.open(map, this);
-              });
+            parking.forEach(function(feature) {
+              markerContent(feature);
               markersParking.push(marker);
               visibleP = true;
             });
-            $("#Parking").attr("style", "opacity:1"); // darken legend button
+            $("#Parking").attr("style", "opacity:1");
           }
           else {
-            setMapOnAllP(null);
-            markersParking = [];
-            visibleP = false;
-            $("#Parking").attr("style", "opacity:0.5"); // lighten legend button           
+            setMapOnAllP(null);          
           }
         }
         function setMapOnAllP(map) {
-          for (var i = 0; i < markersParking.length; i++) {
+          for (i = 0; i < markersParking.length; i++) {
           markersParking[i].setMap(map);
           }
+          markersParking = [];
+          visibleP = false;
+          $("#Parking").attr("style", "opacity:0.5");
         }
 
         function pkiosks() {
           if (visibleK === false) {
-            kiosk.forEach(function(feature) { // load pin location data from above
-              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
-                content: feature.infoContent
-              });
-              // insert pins onto map
-              marker = new google.maps.Marker({
-                position: feature.position,
-                icon: icons[feature.type].icon,
-                map: map
-              });
-              marker.addListener('click', function() {
-                infoWindow.open(map, this);
-              });
+            kiosk.forEach(function(feature) {
+              markerContent(feature);
               markersKiosks.push(marker);
               visibleK = true;
             });
-            $("#Kiosks").attr("style", "opacity:1"); // darken legend button
+            $("#Kiosks").attr("style", "opacity:1");
           }
           else {
             setMapOnAllK(null);
-            markersKiosks = [];
-            visibleK = false;
-            $("#Kiosks").attr("style", "opacity:0.5"); // lighten legend button
           }
         }        
         function setMapOnAllK(map) {
-          for (var i = 0; i < markersKiosks.length; i++) {
+          for (i = 0; i < markersKiosks.length; i++) {
           markersKiosks[i].setMap(map);
           }
+          markersKiosks = [];
+          visibleK = false;
+          $("#Kiosks").attr("style", "opacity:0.5");
         }
 
         function bus() {
           if (visibleBu === false) {
-            buses.forEach(function(feature) { // load pin location data from above
-              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
-                content: feature.infoContent
-              });
-              // insert pins onto map
-              marker = new google.maps.Marker({
-                position: feature.position,
-                icon: icons[feature.type].icon,
-                map: map
-              });
-              marker.addListener('click', function() {
-                infoWindow.open(map, this);
-              });
+            buses.forEach(function(feature) {
+              markerContent(feature);
               markersBuses.push(marker);
               visibleBu = true;                           
             });
-            $("#Buses").attr("style", "opacity:1"); // darken legend button
+            $("#Buses").attr("style", "opacity:1");
           }
           else {
             setMapOnAllBu(null);
-            markersBuses = [];
-            visibleBu = false;
-            $("#Buses").attr("style", "opacity:0.5"); // lighten legend button
           }          
         }
         function setMapOnAllBu(map) {
-          for (var i = 0; i < markersBuses.length; i++) {
+          for (i = 0; i < markersBuses.length; i++) {
           markersBuses[i].setMap(map);
           }
+          markersBuses = [];
+          visibleBu = false;
+          $("#Buses").attr("style", "opacity:0.5");
         }
 
         function shttle() {
           if (visibleSh === false) {
-            shuttles.forEach(function(feature) { // load pin location data from above
-              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
-                content: feature.infoContent
-              });
-              // insert pins onto map
-              marker = new google.maps.Marker({
-                position: feature.position,
-                icon: icons[feature.type].icon,
-                map: map
-              });
-              marker.addListener('click', function() {
-                infoWindow.open(map, this);
-              });
+            shuttles.forEach(function(feature) {
+              markerContent(feature);
               markersShuttles.push(marker);
               visibleSh = true;
             });
-            $("#Shuttles").attr("style", "opacity:1"); // darken legend button
+            $("#Shuttles").attr("style", "opacity:1");
           }
           else {
             setMapOnAllSh(null);
-            markersShuttles = [];
-            visibleSh = false;
-            $("#Shuttles").attr("style", "opacity:0.5"); // lighten legend button
           }
         }        
         function setMapOnAllSh(map) {
-          for (var i = 0; i < markersShuttles.length; i++) {
+          for (i = 0; i < markersShuttles.length; i++) {
           markersShuttles[i].setMap(map);
           }
+          markersShuttles = [];
+          visibleSh = false;
+          $("#Shuttles").attr("style", "opacity:0.5");
         }
 
         function meals() {
           if (visibleF === false) {
-            food.forEach(function(feature) { // load pin location data from above
-              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
-                content: feature.infoContent
-              });
-              var infoWindow = new google.maps.InfoWindow({
-                content: feature.infoContent
-              });
-              // insert pins onto map
-              marker = new google.maps.Marker({
-                position: feature.position,
-                icon: icons[feature.type].icon,
-                map: map
-              });
-              marker.addListener('click', function() {
-                infoWindow.open(map, this);
-              });
+            food.forEach(function(feature) {
+              markerContent(feature);
               markersFood.push(marker);
               visibleF = true;
             });
-            $("#Food").attr("style", "opacity:1"); // darken legend button
+            $("#Food").attr("style", "opacity:1");
           }
           else {
             setMapOnAllF(null);
-            markersFood = [];
-            visibleF = false;
-            $("#Food").attr("style", "opacity:0.5"); // lighten legend button
           }
         }        
         function setMapOnAllF(map) {
-          for (var i = 0; i < markersFood.length; i++) {
+          for (i = 0; i < markersFood.length; i++) {
           markersFood[i].setMap(map);
           }
-        }
+          markersFood = [];
+          visibleF = false;
+          $("#Food").attr("style", "opacity:0.5");
+        }        
 
         function thtr() {
           if (visibleT === false) {
-            theatres.forEach(function(feature) { // load pin location data from above
-              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
-                content: feature.infoContent
-              });
-              // insert pins onto map
-              marker = new google.maps.Marker({
-                position: feature.position,
-                icon: icons[feature.type].icon,
-                map: map
-              });
-              marker.addListener('click', function() {
-                infoWindow.open(map, this);
-              });
+            theatres.forEach(function(feature) {
+              markerContent(feature);
               markersTheatres.push(marker);
               visibleT = true;
             });
-            $("#Theatre").attr("style", "opacity:1"); // darken legend button
+            $("#Theatre").attr("style", "opacity:1");
           }
           else {
             setMapOnAllT(null);
-            markersTheatres = [];
-            visibleT = false;
-            $("#Theatre").attr("style", "opacity:0.5"); // lighten legend button
           }
-        }        
+        }
+
         function setMapOnAllT(map) {
-          for (var i = 0; i < markersTheatres.length; i++) {
+          for (i = 0; i < markersTheatres.length; i++) {
           markersTheatres[i].setMap(map);
           }
+          markersTheatres = [];
+          visibleT = false;
+          $("#Theatre").attr("style", "opacity:0.5");
         }
 
         function sprt() {
           if (visibleSp === false) {
-            sports.forEach(function(feature) { // load pin location data from above
-              var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
-                content: feature.infoContent
-              });
-              // insert pins onto map
-              marker = new google.maps.Marker({
-                position: feature.position,
-                icon: icons[feature.type].icon,
-                map: map
-              });
-              marker.addListener('click', function() {
-                infoWindow.open(map, this);
-              });
+            sports.forEach(function(feature) {
+              markerContent(feature);
               markersSports.push(marker);
               visibleSp = true;
             });
-            $("#Sports").attr("style", "opacity:1"); // darken legend button
+            $("#Sports").attr("style", "opacity:1");
           }
           else {
             setMapOnAllSp(null);
-            markersSports = [];
-            visibleSp = false;
-            $("#Sports").attr("style", "opacity:0.5"); // lighten legend button
           }
         }        
         function setMapOnAllSp(map) {
-          for (var i = 0; i < markersSports.length; i++) {
+          for (i = 0; i < markersSports.length; i++) {
           markersSports[i].setMap(map);
           }
+          markersSports = [];
+          visibleSp = false;
+          $("#Sports").attr("style", "opacity:0.5");
+        }
+
+        // SET ALL MARKERS AND MARKER CONTENT
+        function markerContent(feature) {
+          var infoWindow = new google.maps.InfoWindow({ // capture content for infoWindow pop-up
+            content: feature.infoContent
+          });
+          // insert pins onto map
+          marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+          marker.addListener('click', function() { // open infoWindow on click
+            if (infoWindow.anchor) { // check to see if anchor key exists
+              infoWindow.setMap(null); // close infoWindow
+            }
+            else {
+              infoWindow.open(map, this); // open infoWindow
+            }            
+          });
         }
 
         // LEGEND
         var legend = document.getElementById('legend');
-        for (var key in icons) {
-          var type = icons[key];
-          var name = type.name;
-          var id = type.name; // added to target clicks on legend icons
-          var icon = type.icon;
-          var div = document.createElement('div');
-          div.innerHTML = '<img src="' + icon + '" id="' + id +'" style="cursor:pointer;opacity:0.5"> ' + name;
+        for (var key in icons) { // loop to build legend data
+          var type = icons[key],
+          name = type.name,
+          id = type.name, // added to target clicks on legend icons
+          icon = type.icon,
+          div = document.createElement('div');
+          if (id === "Clear") { // add the CLEAR ALL img without name text
+            div.innerHTML = '<img src="' + icon + '" id="' + id + '">"';
           legend.appendChild(div);
+          }
+          else { // add markers to legend with name text
+            div.innerHTML = '<img src="' + icon + '" id="' + id +'" style="cursor:pointer;opacity:0.5"> ' + name;
+            legend.appendChild(div);
+          }
         }
-        // Append bike icon and 'CLEAR ALL'
-        div.innerHTML = '<img src="assets/images/bike.png" id="Bike" style="cursor:pointer;opacity:0.5"> ' + 'Routes<br><img src="assets/images/clear.png" id="Clear" style="cursor:pointer">';
-          legend.appendChild(div);
+        // position Legend on map
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
         
         // ADD / REMOVE BIKE MAP LAYER
-        var bikeOn;
-        var bikeLayer;
+        var bikeOn,
+        bikeLayer;
         function bikeRoutes() {
-          if (bikeOn === undefined || bikeOn === false) {
-            bikeLayer = new google.maps.BicyclingLayer();
-            bikeLayer.setMap(map);
-            $("#Bike").attr("style", "opacity:1");
-            bikeOn = true;
+          if (bikeOn === undefined || bikeOn === false) { // check if bike layer off
+            bikeLayer = new google.maps.BicyclingLayer(); // enable bike layer
+            bikeLayer.setMap(map); // append bike layer to map
+            $("#Bike").attr("style", "opacity:1"); // darken bike icon in Legend
+            bikeOn = true; // set visible to true
           }  
-          else {
-            bikeLayer.setMap(null);
-            bikeOn = false;
+          else { // turn off bike layer
+            setMapOnAllBi();
           }
+        }
+        function setMapOnAllBi() {
+          bikeLayer.setMap(null); // remove bike layer from map
+          $("#Bike").attr("style", "opacity:0.5"); // lighten bike icon in Legend
+          bikeOn = false; // set visible to false
         }
 
         // CLEAR ALL BUTTON
         function clearAll() {
-          setMapOnAllA(null);
-          visibleA = false;
-          $("#Admissions").attr("style", "opacity:0.5");
-          setMapOnAllBo(null);
-          visibleBo = false;
-          $("#Books").attr("style", "opacity:0.5");
-          setMapOnAllP(null);
-          visibleP = false;
-          $("#Parking").attr("style", "opacity:0.5");
-          setMapOnAllK(null);
-          visibleK = false;
-          $("#Kiosks").attr("style", "opacity:0.5");
-          setMapOnAllBu(null);
-          visibleBu = false;
-          $("#Buses").attr("style", "opacity:0.5");
-          setMapOnAllSh(null);
-          visibleSh = false;
-          $("#Shuttles").attr("style", "opacity:0.5");
-          setMapOnAllF(null);
-          visibleF = false;
-          $("#Food").attr("style", "opacity:0.5");
-          setMapOnAllT(null);
-          visibleT = false;
-          $("#Theatre").attr("style", "opacity:0.5");
-          setMapOnAllSp(null);
-          visibleSp = false;
-          $("#Sports").attr("style", "opacity:0.5");
-          bikeLayer.setMap(null);
-          bikeOn = false;
-          $("#Bike").attr("style", "opacity:0.5");
+          setMapOnAllA();
+          setMapOnAllBo();
+          setMapOnAllP();
+          setMapOnAllK();
+          setMapOnAllBu();
+          setMapOnAllSh();
+          setMapOnAllF();
+          setMapOnAllT();
+          setMapOnAllSp();
+          setMapOnAllBi();
         }
 
         // Listeners on Legend icons
@@ -1027,7 +1176,6 @@
         $("#Clear").on("click", clearAll);
 
       } // END OF MAIN MAP LOAD
-
 
       // ICONS
       var iconBase = 'assets/images/';
@@ -1068,13 +1216,15 @@
             name: 'Sports',
             icon: iconBase + 'sports.png'
           },
-          // blank necessary for 'Sports' to appear in Legend
-          blank: {
-            name: 'Blank',
-            icon: iconBase + 'sports.png'
+          bike: {
+            name: 'Bike',
+            icon: iconBase + 'bike.png'
+          },
+          clear: {
+            name: 'Clear',
+            icon: iconBase + 'clear.png'
           }
         };
-
 
         // GEOLOCATION
         if (navigator.geolocation) {
@@ -1096,12 +1246,11 @@
           handleLocationError(false, infoWindow, map.getCenter());
         }
 
-
       // ERROR HANDLER FOR GEOLOCATION
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
-            'Error: The Geolocation service failed.' :
+            'Error: Geolocation is disabled.' :
             'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
